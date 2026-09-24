@@ -32,7 +32,7 @@ export function Footer() {
       <div
         aria-hidden
         className="mt-16 select-none whitespace-nowrap font-display font-extrabold leading-[.85] tracking-[-.05em]"
-        style={{ fontSize: "clamp(40px, 13.2vw, 176px)" }}
+        style={{ fontSize: "clamp(36px, 11.5vw, 160px)" }}
       >
         MQS<span className="text-accent">_</span>Advisor
       </div>
