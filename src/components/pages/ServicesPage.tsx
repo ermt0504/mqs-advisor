@@ -21,12 +21,17 @@ export function ServicesPage() {
                   {s.title}
                 </h2>
                 <p className="mt-4 max-w-xl font-sans text-lg leading-[1.55] text-muted-2">{s.text}</p>
-                <Placeholder className="mt-5 max-w-xl">{t.common.toProvideBy}</Placeholder>
               </div>
               <div className="grid content-start gap-8">
                 <div>
                   <div className="label-mono mb-3 text-accent">{t.services.deliverables}</div>
-                  <Placeholder>{t.common.toProvide}</Placeholder>
+                  <ul className="border-t border-line">
+                    {s.deliverables.map((d) => (
+                      <li key={d} className="border-b border-line py-3 font-sans text-[15px] text-muted-2">
+                        <span className="mr-3 text-accent">→</span>{d}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
                 <div>
                   <div className="label-mono mb-3 text-accent">{t.services.related}</div>

@@ -41,7 +41,7 @@ export function Footer() {
           © {new Date().getFullYear()} MQS_Advisor. {t.footer.rights}
         </span>
         <span title={t.footer.legalText}>
-          {t.footer.legal} · {t.common.toProvide}
+          {t.footer.legal}
         </span>
         <LangToggle />
       </div>

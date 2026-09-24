@@ -4,6 +4,10 @@ import type { Project } from "@/i18n/fr";
 import { cn } from "@/lib/utils";
 import { CtaBand, PageHero, ProjectRow } from "@/components/site/Blocks";
 import { L, Placeholder, Reveal, Section } from "@/components/site/primitives";
+import saturneImg from "@/assets/project-saturne-pro.jpg";
+import tcmImg from "@/assets/project-tcm.jpg";
+
+const IMAGES: Record<string, string> = { "saturne-pro": saturneImg, "taxi-conventionne-medical": tcmImg };
 
 const COUNTRIES = ["FR", "SN", "DJ", "CA"] as const;
 const STATUSES = ["live", "wip"] as const;
@@ -104,7 +108,11 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
               </a>
             </>
           )}
-          <Placeholder className="mt-14 flex aspect-[16/9] items-center justify-center">{t.common.imageSlot}</Placeholder>
+          {IMAGES[p.slug] ? (
+            <img src={IMAGES[p.slug]} alt={p.name} width={1600} height={912} loading="lazy" className="mt-14 aspect-[16/9] w-full object-cover" />
+          ) : (
+            <Placeholder className="mt-14 flex aspect-[16/9] items-center justify-center">{t.common.imageSlot}</Placeholder>
+          )}
         </Reveal>
       </Section>
       <CtaBand />

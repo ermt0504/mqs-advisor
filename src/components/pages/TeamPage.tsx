@@ -1,10 +1,12 @@
 import { useT } from "@/i18n";
 import { CtaBand, PageHero } from "@/components/site/Blocks";
 import { L, Reveal, Section } from "@/components/site/primitives";
+import ceo from "@/assets/team-ceo.jpg";
+import cto from "@/assets/team-cto.jpg";
+import legal from "@/assets/team-legal.jpg";
 
-// Replace with real members: { name, role, photo } once MQS_Advisor provides them.
-// Photos render grayscale and turn to colour on hover.
-const SLOTS = 4;
+// Temporary AI portraits — replace with real photos (same file names).
+const PHOTOS: Record<string, string> = { ceo, cto, legal };
 
 export function TeamPage() {
   const { t, paths } = useT();
@@ -14,15 +16,24 @@ export function TeamPage() {
         <PageHero label={t.team.label} title={t.team.title} />
       </div>
       <Section label={t.team.label}>
-        <ul className="grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
-          {Array.from({ length: SLOTS }).map((_, i) => (
-            <Reveal as="li" key={i} delay={i * 80} className="group bg-background">
-              <div className="flex aspect-square items-center justify-center border border-dashed border-line grayscale transition-[filter] duration-500 group-hover:grayscale-0">
-                <span className="label-mono text-dim">{t.common.imageSlot}</span>
+        <ul className="grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3">
+          {t.team.members.map((m, i) => (
+            <Reveal as="li" key={m.key} delay={i * 80} className="group bg-background">
+              <div className="aspect-square overflow-hidden">
+                <img
+                  src={PHOTOS[m.key]}
+                  alt={`${m.role} — ${m.origin}`}
+                  width={816}
+                  height={816}
+                  loading="lazy"
+                  className="size-full object-cover grayscale transition-[filter,transform] duration-500 group-hover:scale-[1.02] group-hover:grayscale-0"
+                />
               </div>
               <div className="p-5">
-                <div className="font-display text-lg font-semibold text-dim">{t.team.member}</div>
-                <div className="label-mono mt-2 text-dim">{t.team.role}</div>
+                <div className="font-display text-lg font-semibold text-ink-strong">{m.name}</div>
+                <div className="label-mono mt-2 text-accent">{m.role}</div>
+                <div className="label-mono mt-1 text-dim">{m.origin}</div>
+                <p className="mt-4 font-sans text-[15px] leading-normal text-muted-foreground">{m.bio}</p>
               </div>
             </Reveal>
           ))}
