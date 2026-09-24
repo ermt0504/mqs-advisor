@@ -54,7 +54,7 @@ export function VisionPage() {
             </p>
           ))}
         </div>
-        <Placeholder className="max-w-xl">{t.vision.note}</Placeholder>
+        {t.vision.note && <Placeholder className="max-w-xl">{t.vision.note}</Placeholder>}
       </div>
       <CtaBand />
     </>

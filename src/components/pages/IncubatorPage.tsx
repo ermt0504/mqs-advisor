@@ -1,6 +1,6 @@
 import { useT } from "@/i18n";
 import { CtaBand, PageHero, Pipeline } from "@/components/site/Blocks";
-import { Placeholder, Reveal, Section } from "@/components/site/primitives";
+import { Reveal, Section } from "@/components/site/primitives";
 
 export function IncubatorPage() {
   const { t } = useT();
@@ -24,7 +24,7 @@ export function IncubatorPage() {
               className="border-b border-line py-10 md:px-8 md:odd:border-r md:odd:pl-0"
             >
               <h3 className="font-display text-2xl font-semibold tracking-[-.02em] text-ink-strong">{d.title}</h3>
-              <Placeholder className="mt-5">{t.common.toProvideBy}</Placeholder>
+              <p className="mt-5 font-sans text-[16px] leading-[1.55] text-muted-2">{d.text}</p>
             </Reveal>
           ))}
         </div>
