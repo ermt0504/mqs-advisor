@@ -3,6 +3,7 @@ import { useT } from "@/i18n";
 import { Globe, type CountryCode } from "@/components/site/Globe";
 import { CtaBand, Pipeline, ProjectRow } from "@/components/site/Blocks";
 import { Counter, Reveal, Section } from "@/components/site/primitives";
+import { IdeaAdvisor } from "@/components/site/IdeaAdvisor";
 
 export function countsByCountry(projects: { country: CountryCode }[]) {
   const c: Record<CountryCode, number> = { CA: 0, FR: 0, SN: 0, DJ: 0 };
@@ -104,6 +105,8 @@ export function HomePage() {
           ))}
         </div>
       </Section>
+
+      <IdeaAdvisor />
 
       <CtaBand />
     </>
