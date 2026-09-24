@@ -10,33 +10,258 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EquipeRouteImport } from './routes/equipe'
+import { Route as IncubateurRouteImport } from './routes/incubateur'
+import { Route as PresenceRouteImport } from './routes/presence'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as VisionRouteImport } from './routes/vision'
+import { Route as EnIndexRouteImport } from './routes/en.index'
+import { Route as EnContactRouteImport } from './routes/en.contact'
+import { Route as EnIncubatorRouteImport } from './routes/en.incubator'
+import { Route as EnPresenceRouteImport } from './routes/en.presence'
+import { Route as EnServicesRouteImport } from './routes/en.services'
+import { Route as EnTeamRouteImport } from './routes/en.team'
+import { Route as EnVisionRouteImport } from './routes/en.vision'
+import { Route as ProjetsIndexRouteImport } from './routes/projets.index'
+import { Route as ProjetsSlugRouteImport } from './routes/projets.$slug'
+import { Route as EnProjectsIndexRouteImport } from './routes/en.projects.index'
+import { Route as EnProjectsSlugRouteImport } from './routes/en.projects.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EquipeRoute = EquipeRouteImport.update({
+  id: '/equipe',
+  path: '/equipe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IncubateurRoute = IncubateurRouteImport.update({
+  id: '/incubateur',
+  path: '/incubateur',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PresenceRoute = PresenceRouteImport.update({
+  id: '/presence',
+  path: '/presence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VisionRoute = VisionRouteImport.update({
+  id: '/vision',
+  path: '/vision',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/en/',
+  path: '/en/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnContactRoute = EnContactRouteImport.update({
+  id: '/en/contact',
+  path: '/en/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnIncubatorRoute = EnIncubatorRouteImport.update({
+  id: '/en/incubator',
+  path: '/en/incubator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnPresenceRoute = EnPresenceRouteImport.update({
+  id: '/en/presence',
+  path: '/en/presence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnServicesRoute = EnServicesRouteImport.update({
+  id: '/en/services',
+  path: '/en/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnTeamRoute = EnTeamRouteImport.update({
+  id: '/en/team',
+  path: '/en/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnVisionRoute = EnVisionRouteImport.update({
+  id: '/en/vision',
+  path: '/en/vision',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjetsIndexRoute = ProjetsIndexRouteImport.update({
+  id: '/projets/',
+  path: '/projets/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjetsSlugRoute = ProjetsSlugRouteImport.update({
+  id: '/projets/$slug',
+  path: '/projets/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnProjectsIndexRoute = EnProjectsIndexRouteImport.update({
+  id: '/en/projects/',
+  path: '/en/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnProjectsSlugRoute = EnProjectsSlugRouteImport.update({
+  id: '/en/projects/$slug',
+  path: '/en/projects/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/equipe': typeof EquipeRoute
+  '/incubateur': typeof IncubateurRoute
+  '/presence': typeof PresenceRoute
+  '/services': typeof ServicesRoute
+  '/vision': typeof VisionRoute
+  '/en/contact': typeof EnContactRoute
+  '/en/incubator': typeof EnIncubatorRoute
+  '/en/presence': typeof EnPresenceRoute
+  '/en/services': typeof EnServicesRoute
+  '/en/team': typeof EnTeamRoute
+  '/en/vision': typeof EnVisionRoute
+  '/projets/$slug': typeof ProjetsSlugRoute
+  '/en/': typeof EnIndexRoute
+  '/projets/': typeof ProjetsIndexRoute
+  '/en/projects/$slug': typeof EnProjectsSlugRoute
+  '/en/projects/': typeof EnProjectsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/equipe': typeof EquipeRoute
+  '/incubateur': typeof IncubateurRoute
+  '/presence': typeof PresenceRoute
+  '/services': typeof ServicesRoute
+  '/vision': typeof VisionRoute
+  '/en/contact': typeof EnContactRoute
+  '/en/incubator': typeof EnIncubatorRoute
+  '/en/presence': typeof EnPresenceRoute
+  '/en/services': typeof EnServicesRoute
+  '/en/team': typeof EnTeamRoute
+  '/en/vision': typeof EnVisionRoute
+  '/projets/$slug': typeof ProjetsSlugRoute
+  '/en': typeof EnIndexRoute
+  '/projets': typeof ProjetsIndexRoute
+  '/en/projects/$slug': typeof EnProjectsSlugRoute
+  '/en/projects': typeof EnProjectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/equipe': typeof EquipeRoute
+  '/incubateur': typeof IncubateurRoute
+  '/presence': typeof PresenceRoute
+  '/services': typeof ServicesRoute
+  '/vision': typeof VisionRoute
+  '/en/contact': typeof EnContactRoute
+  '/en/incubator': typeof EnIncubatorRoute
+  '/en/presence': typeof EnPresenceRoute
+  '/en/services': typeof EnServicesRoute
+  '/en/team': typeof EnTeamRoute
+  '/en/vision': typeof EnVisionRoute
+  '/projets/$slug': typeof ProjetsSlugRoute
+  '/en/': typeof EnIndexRoute
+  '/projets/': typeof ProjetsIndexRoute
+  '/en/projects/$slug': typeof EnProjectsSlugRoute
+  '/en/projects/': typeof EnProjectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/equipe'
+    | '/incubateur'
+    | '/presence'
+    | '/services'
+    | '/vision'
+    | '/en/contact'
+    | '/en/incubator'
+    | '/en/presence'
+    | '/en/services'
+    | '/en/team'
+    | '/en/vision'
+    | '/projets/$slug'
+    | '/en/'
+    | '/projets/'
+    | '/en/projects/$slug'
+    | '/en/projects/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact'
+    | '/equipe'
+    | '/incubateur'
+    | '/presence'
+    | '/services'
+    | '/vision'
+    | '/en/contact'
+    | '/en/incubator'
+    | '/en/presence'
+    | '/en/services'
+    | '/en/team'
+    | '/en/vision'
+    | '/projets/$slug'
+    | '/en'
+    | '/projets'
+    | '/en/projects/$slug'
+    | '/en/projects'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/equipe'
+    | '/incubateur'
+    | '/presence'
+    | '/services'
+    | '/vision'
+    | '/en/contact'
+    | '/en/incubator'
+    | '/en/presence'
+    | '/en/services'
+    | '/en/team'
+    | '/en/vision'
+    | '/projets/$slug'
+    | '/en/'
+    | '/projets/'
+    | '/en/projects/$slug'
+    | '/en/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  EquipeRoute: typeof EquipeRoute
+  IncubateurRoute: typeof IncubateurRoute
+  PresenceRoute: typeof PresenceRoute
+  ServicesRoute: typeof ServicesRoute
+  VisionRoute: typeof VisionRoute
+  EnContactRoute: typeof EnContactRoute
+  EnIncubatorRoute: typeof EnIncubatorRoute
+  EnPresenceRoute: typeof EnPresenceRoute
+  EnServicesRoute: typeof EnServicesRoute
+  EnTeamRoute: typeof EnTeamRoute
+  EnVisionRoute: typeof EnVisionRoute
+  ProjetsSlugRoute: typeof ProjetsSlugRoute
+  EnIndexRoute: typeof EnIndexRoute
+  ProjetsIndexRoute: typeof ProjetsIndexRoute
+  EnProjectsSlugRoute: typeof EnProjectsSlugRoute
+  EnProjectsIndexRoute: typeof EnProjectsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +273,147 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/equipe': {
+      id: '/equipe'
+      path: '/equipe'
+      fullPath: '/equipe'
+      preLoaderRoute: typeof EquipeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/incubateur': {
+      id: '/incubateur'
+      path: '/incubateur'
+      fullPath: '/incubateur'
+      preLoaderRoute: typeof IncubateurRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/presence': {
+      id: '/presence'
+      path: '/presence'
+      fullPath: '/presence'
+      preLoaderRoute: typeof PresenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vision': {
+      id: '/vision'
+      path: '/vision'
+      fullPath: '/vision'
+      preLoaderRoute: typeof VisionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/': {
+      id: '/en/'
+      path: '/en'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/contact': {
+      id: '/en/contact'
+      path: '/en/contact'
+      fullPath: '/en/contact'
+      preLoaderRoute: typeof EnContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/incubator': {
+      id: '/en/incubator'
+      path: '/en/incubator'
+      fullPath: '/en/incubator'
+      preLoaderRoute: typeof EnIncubatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/presence': {
+      id: '/en/presence'
+      path: '/en/presence'
+      fullPath: '/en/presence'
+      preLoaderRoute: typeof EnPresenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/services': {
+      id: '/en/services'
+      path: '/en/services'
+      fullPath: '/en/services'
+      preLoaderRoute: typeof EnServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/team': {
+      id: '/en/team'
+      path: '/en/team'
+      fullPath: '/en/team'
+      preLoaderRoute: typeof EnTeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/vision': {
+      id: '/en/vision'
+      path: '/en/vision'
+      fullPath: '/en/vision'
+      preLoaderRoute: typeof EnVisionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projets/': {
+      id: '/projets/'
+      path: '/projets'
+      fullPath: '/projets/'
+      preLoaderRoute: typeof ProjetsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projets/$slug': {
+      id: '/projets/$slug'
+      path: '/projets/$slug'
+      fullPath: '/projets/$slug'
+      preLoaderRoute: typeof ProjetsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/projects/': {
+      id: '/en/projects/'
+      path: '/en/projects'
+      fullPath: '/en/projects/'
+      preLoaderRoute: typeof EnProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/projects/$slug': {
+      id: '/en/projects/$slug'
+      path: '/en/projects/$slug'
+      fullPath: '/en/projects/$slug'
+      preLoaderRoute: typeof EnProjectsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  EquipeRoute: EquipeRoute,
+  IncubateurRoute: IncubateurRoute,
+  PresenceRoute: PresenceRoute,
+  ServicesRoute: ServicesRoute,
+  VisionRoute: VisionRoute,
+  EnContactRoute: EnContactRoute,
+  EnIncubatorRoute: EnIncubatorRoute,
+  EnPresenceRoute: EnPresenceRoute,
+  EnServicesRoute: EnServicesRoute,
+  EnTeamRoute: EnTeamRoute,
+  EnVisionRoute: EnVisionRoute,
+  ProjetsSlugRoute: ProjetsSlugRoute,
+  EnIndexRoute: EnIndexRoute,
+  ProjetsIndexRoute: ProjetsIndexRoute,
+  EnProjectsSlugRoute: EnProjectsSlugRoute,
+  EnProjectsIndexRoute: EnProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
