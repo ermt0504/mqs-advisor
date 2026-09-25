@@ -27,6 +27,10 @@ export const en: Dict = {
       description: "MQS_Advisor operates in Canada (headquarters), France, Senegal and Djibouti.",
     },
     team: { title: "Team — MQS_Advisor", description: "The MQS_Advisor team and open positions." },
+    digiafrica: {
+      title: "DIGIAFRICA — Sovereign digital transformation in Africa | MQS_Advisor",
+      description: "DIGIAFRICA, the African entity of MQS_Advisor: digital taxation, digital identity, AI and cybersecurity for governments in Senegal and Djibouti.",
+    },
     contact: { title: "Contact — MQS_Advisor", description: "Contact MQS_Advisor or submit your project to the incubator." },
   },
   nav: {
@@ -36,6 +40,7 @@ export const en: Dict = {
     projects: "Projects",
     presence: "Presence",
     team: "Team",
+    digiafrica: "DIGIAFRICA",
     contact: "Contact",
     submit: "Submit a project",
     menu: "Menu",
@@ -53,6 +58,8 @@ export const en: Dict = {
     projectsCount: (n: number) => (n === 1 ? "1 project" : `${n} projects`),
   },
   advisor: {
+    example: "Example",
+    links: "Explore on our site",
     label: "AI advisor",
     title: "Describe your idea, get your website.",
     text: "Explain your project in a few sentences: our AI suggests tailored pages, features and a visual direction.",
@@ -199,6 +206,30 @@ export const en: Dict = {
       cta: "Visit DIGIAFRICA",
       url: "https://app.digiafrika.com/",
     },
+  },
+  digiafrica: {
+    label: "[01] DIGIAFRICA",
+    title: "Sovereign digital, for Africa.",
+    intro: "DIGIAFRICA SARL is the MQS_Advisor entity that delivers all our projects on the African continent. A strategic partner to governments, it designs and runs sovereign digital transformation platforms.",
+    goalsLabel: "[02] Goals",
+    goals: [
+      { title: "Digital taxation", text: "Modernise public revenue collection: online filing, online payment and real-time monitoring." },
+      { title: "Digital identity", text: "Give every citizen a trusted identity to access public services online." },
+      { title: "Artificial intelligence", text: "Put AI to work for administrations: data analysis, fraud detection, user assistance." },
+      { title: "Cybersecurity", text: "Protect public systems and citizen data, with sovereign hosting." },
+    ],
+    projectsLabel: "[03] Ongoing projects",
+    projects: [
+      { country: "DJ", title: "Digital taxation platform", text: "Online tax filing and payment for businesses and individuals." },
+      { country: "DJ", title: "Digital public service desk", text: "A single entry point for administrative procedures." },
+      { country: "SN", title: "Digital identity and signature", text: "Secure citizen authentication for online services." },
+    ],
+    factsLabel: "[04] Key figures",
+    quoteLabel: "[05] Testimonial",
+    quote: "With DIGIAFRICA, we bring to Africa the same standard as in Europe and Canada: useful, secure products built with institutions, not just for them.",
+    quoteAuthor: "Co-founder & CEO, MQS_Advisor",
+    ctaTitle: "A public project in Africa?",
+    ctaText: "Let's talk about your digital transformation needs.",
   },
   team: {
     label: "[01] Team",

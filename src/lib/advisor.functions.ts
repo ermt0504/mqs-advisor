@@ -3,6 +3,8 @@ import { z } from "zod";
 
 const Input = z.object({ idea: z.string().trim().min(10).max(2000), lang: z.enum(["fr", "en"]) });
 
+const SITE_PAGES = ["services", "incubator", "projects", "presence", "digiafrica", "team", "contact"] as const;
+
 export const recommendWebsite = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => Input.parse(d))
   .handler(async ({ data }) => {
@@ -15,19 +17,23 @@ export const recommendWebsite = createServerFn({ method: "POST" })
       apiKey: key,
       headers: { "Lovable-API-Key": key, "X-Lovable-AIG-SDK": "vercel-ai-sdk" },
     });
-    const language = data.lang === "fr" ? "French" : "English";
+    const language = data.lang === "fr" ? "French (français), never English" : "English";
+    const item = z.object({ name: z.string(), example: z.string() });
     const result = streamText({
       model: lovable.responses("openai/gpt-6-astra"),
-      system: `You are a senior product & web strategist at MQS_Advisor, a product studio and incubator (Canada, France, Senegal, Djibouti). Given a business idea, produce concise, specific website recommendations. Answer in ${language}. Keep each text field under 40 words; 3 to 5 items per list.`,
+      system: `You are a senior product & web strategist at MQS_Advisor, a product studio and incubator (Canada HQ, France, Senegal, Djibouti; operating in Africa as DIGIAFRICA for public/government platforms). Given a business idea, produce concise, specific website recommendations. Write EVERY field in ${language}.
+For each page and feature, give a short name and a concrete example tied to the idea (real content, a sample headline, a user scenario). Keep each text under 35 words; 3 to 5 items per list.
+In "links", pick 1 to 3 MQS_Advisor site pages most useful for this visitor: services (what we build), incubator (turn the idea into a company), projects (similar work: Saturne Pro, Taxi Conventionné Médical), presence, digiafrica (public/government projects in Africa), team, contact. Give a one-sentence reason each.`,
       prompt: data.idea,
       output: Output.object({
         schema: z.object({
           summary: z.string(),
           audience: z.string(),
-          pages: z.array(z.string()),
-          features: z.array(z.string()),
+          pages: z.array(item),
+          features: z.array(item),
           design: z.string(),
           nextSteps: z.array(z.string()),
+          links: z.array(z.object({ page: z.enum(SITE_PAGES), reason: z.string() })),
         }),
       }),
       providerOptions: {
@@ -35,6 +41,11 @@ export const recommendWebsite = createServerFn({ method: "POST" })
       },
     });
     const o = await result.output;
-    const clip = (a: string[]) => a.slice(0, 5);
-    return { ...o, pages: clip(o.pages), features: clip(o.features), nextSteps: clip(o.nextSteps) };
+    return {
+      ...o,
+      pages: o.pages.slice(0, 5),
+      features: o.features.slice(0, 5),
+      nextSteps: o.nextSteps.slice(0, 5),
+      links: o.links.slice(0, 3),
+    };
   });

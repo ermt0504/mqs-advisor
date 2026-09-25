@@ -2,12 +2,12 @@ import { useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { useT } from "@/i18n";
 import { recommendWebsite } from "@/lib/advisor.functions";
-import { Reveal, Section } from "./primitives";
+import { L, Reveal, Section } from "./primitives";
 
 type Result = Awaited<ReturnType<typeof recommendWebsite>>;
 
 export function IdeaAdvisor() {
-  const { t, lang } = useT();
+  const { t, lang, paths } = useT();
   const a = t.advisor;
   const run = useServerFn(recommendWebsite);
   const [idea, setIdea] = useState("");
@@ -28,12 +28,15 @@ export function IdeaAdvisor() {
     }
   };
 
-  const List = ({ title, items }: { title: string; items: string[] }) => (
+  const Examples = ({ title, items }: { title: string; items: { name: string; example: string }[] }) => (
     <div className="bg-background p-6">
       <div className="label-mono text-accent">{title}</div>
-      <ul className="mt-4 space-y-2 font-sans text-[15px] text-muted-foreground">
+      <ul className="mt-4 space-y-4 font-sans text-[15px]">
         {items.map((x) => (
-          <li key={x}>→ {x}</li>
+          <li key={x.name}>
+            <div className="text-ink-strong">→ {x.name}</div>
+            <p className="mt-1 pl-4 text-muted-foreground"><span className="text-dim">{a.example} : </span>{x.example}</p>
+          </li>
         ))}
       </ul>
     </div>
@@ -60,13 +63,31 @@ export function IdeaAdvisor() {
             <p className="mt-4 font-sans text-lg text-ink-strong">{res.summary}</p>
             <p className="mt-3 font-sans text-[15px] text-muted-foreground"><span className="text-dim">{a.audience} — </span>{res.audience}</p>
           </div>
-          <List title={a.pages} items={res.pages} />
-          <List title={a.features} items={res.features} />
+          <Examples title={a.pages} items={res.pages} />
+          <Examples title={a.features} items={res.features} />
           <div className="bg-background p-6">
             <div className="label-mono text-accent">{a.design}</div>
             <p className="mt-4 font-sans text-[15px] text-muted-foreground">{res.design}</p>
           </div>
-          <List title={a.next} items={res.nextSteps} />
+          <div className="bg-background p-6">
+            <div className="label-mono text-accent">{a.next}</div>
+            <ul className="mt-4 space-y-2 font-sans text-[15px] text-muted-foreground">
+              {res.nextSteps.map((x) => <li key={x}>→ {x}</li>)}
+            </ul>
+          </div>
+          {res.links.length > 0 && (
+            <div className="bg-background p-6 md:col-span-2">
+              <div className="label-mono text-accent">{a.links}</div>
+              <div className="mt-4 grid gap-px bg-line sm:grid-cols-3">
+                {res.links.map((l) => (
+                  <L key={l.page} to={paths[l.page]} className="group bg-background p-5 transition-colors hover:bg-muted">
+                    <div className="text-ink-strong group-hover:text-accent">{t.nav[l.page]} →</div>
+                    <p className="mt-2 font-sans text-sm text-muted-foreground">{l.reason}</p>
+                  </L>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </Section>

@@ -3,7 +3,7 @@ import { fr } from "./fr";
 import { en } from "./en";
 
 export type Lang = "fr" | "en";
-export type PageKey = "home" | "vision" | "services" | "incubator" | "projects" | "presence" | "team" | "contact";
+export type PageKey = "home" | "vision" | "services" | "incubator" | "projects" | "presence" | "team" | "digiafrica" | "contact";
 export type NavKey = Exclude<PageKey, "home">;
 
 export const DICTS = { fr, en };
@@ -17,6 +17,7 @@ export const PATHS: Record<Lang, Record<PageKey, string>> = {
     projects: "/projets",
     presence: "/presence",
     team: "/equipe",
+    digiafrica: "/digiafrika",
     contact: "/contact",
   },
   en: {
@@ -27,6 +28,7 @@ export const PATHS: Record<Lang, Record<PageKey, string>> = {
     projects: "/en/projects",
     presence: "/en/presence",
     team: "/en/team",
+    digiafrica: "/en/digiafrika",
     contact: "/en/contact",
   },
 };
@@ -70,13 +72,16 @@ export function seo(lang: Lang, page: PageKey, override?: { title: string; descr
       { name: "description", content: m.description },
       { property: "og:title", content: m.title },
       { property: "og:description", content: m.description },
-      { property: "og:type", content: "website" },
+      { property: "og:type", content: override?.slug ? "article" : "website" },
+      { property: "og:url", content: lang === "fr" ? frPath : enPath },
+      { property: "og:site_name", content: "MQS_Advisor" },
       { property: "og:locale", content: lang === "fr" ? "fr_FR" : "en_CA" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: m.title },
       { name: "twitter:description", content: m.description },
     ],
     links: [
+      { rel: "canonical", href: lang === "fr" ? frPath : enPath },
       { rel: "alternate", hrefLang: "fr", href: frPath },
       { rel: "alternate", hrefLang: "en", href: enPath },
       { rel: "alternate", hrefLang: "x-default", href: frPath },
