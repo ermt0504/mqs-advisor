@@ -188,6 +188,18 @@ export const fr = {
     hint: "Cliquez sur un pays pour voir ses projets.",
     hq: "Siège",
     panelEmpty: "Aucun projet publié pour ce pays.",
+    africa: {
+      label: "[02] En Afrique",
+      title: "En Afrique, nous opérons sous le nom DIGIAFRICA.",
+      text: "DIGIAFRICA SARL est l'entité qui réalise tous nos projets sur le continent. Partenaire stratégique des gouvernements africains, elle conçoit des plateformes de transformation numérique souveraine : fiscalité digitale, identité numérique, intelligence artificielle et cybersécurité.",
+      facts: [
+        { value: "10", label: "Plateformes livrées" },
+        { value: "2 ans", label: "Présence à Djibouti" },
+        { value: "SN · DJ", label: "Pays d'opération" },
+      ],
+      cta: "Visiter DIGIAFRICA",
+      url: "https://app.digiafrika.com/",
+    },
   },
   team: {
     label: "[01] Équipe",

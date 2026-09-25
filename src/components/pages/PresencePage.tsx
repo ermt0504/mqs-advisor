@@ -35,6 +35,34 @@ export function PresencePage() {
         />
       </div>
 
+      <section className="relative z-10 border-t border-line bg-background/80 px-5 py-20 md:px-14">
+        <Reveal>
+          <div className="label-mono mb-8 text-accent">{t.presence.africa.label}</div>
+          <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr]">
+            <div>
+              <h2 className="h-section max-w-[18ch]">{t.presence.africa.title}</h2>
+              <p className="mt-6 max-w-[60ch] font-sans text-muted-foreground">{t.presence.africa.text}</p>
+              <a
+                href={t.presence.africa.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="label-mono mt-8 inline-block border border-accent px-4 py-2.5 text-accent transition-colors hover:bg-accent hover:text-accent-foreground"
+              >
+                {t.presence.africa.cta} ↗
+              </a>
+            </div>
+            <dl className="grid grid-cols-1 border-t border-line sm:grid-cols-3 lg:grid-cols-1">
+              {t.presence.africa.facts.map((f) => (
+                <div key={f.label} className="border-b border-line py-6">
+                  <dt className="label-mono text-muted-foreground">{f.label}</dt>
+                  <dd className="mt-2 font-display text-4xl font-extrabold tracking-[-.04em]">{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </Reveal>
+      </section>
+
       <aside
         aria-live="polite"
         aria-hidden={!sel}
