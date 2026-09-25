@@ -25,6 +25,10 @@ export const fr = {
       description: "MQS_Advisor est présent au Canada (siège), en France, au Sénégal et à Djibouti.",
     },
     team: { title: "Équipe — MQS_Advisor", description: "L'équipe MQS_Advisor et les postes ouverts." },
+    digiafrica: {
+      title: "DIGIAFRICA — Transformation numérique souveraine en Afrique | MQS_Advisor",
+      description: "DIGIAFRICA, l'entité africaine de MQS_Advisor : fiscalité digitale, identité numérique, IA et cybersécurité pour les gouvernements au Sénégal et à Djibouti.",
+    },
     contact: {
       title: "Contact — MQS_Advisor",
       description: "Contactez MQS_Advisor ou soumettez votre projet à l'incubateur.",
@@ -37,6 +41,7 @@ export const fr = {
     projects: "Projets",
     presence: "Présence",
     team: "Équipe",
+    digiafrica: "DIGIAFRICA",
     contact: "Contact",
     submit: "Soumettre un projet",
     menu: "Menu",
@@ -54,6 +59,8 @@ export const fr = {
     projectsCount: (n: number) => (n > 1 ? `${n} projets` : `${n} projet`),
   },
   advisor: {
+    example: "Exemple",
+    links: "À explorer sur notre site",
     label: "Conseiller IA",
     title: "Décrivez votre idée, recevez votre site.",
     text: "Expliquez votre projet en quelques phrases : notre IA vous propose des pages, des fonctionnalités et une direction visuelle sur mesure.",
@@ -200,6 +207,30 @@ export const fr = {
       cta: "Visiter DIGIAFRICA",
       url: "https://app.digiafrika.com/",
     },
+  },
+  digiafrica: {
+    label: "[01] DIGIAFRICA",
+    title: "Le numérique souverain, pour l'Afrique.",
+    intro: "DIGIAFRICA SARL est l'entité de MQS_Advisor qui réalise tous nos projets sur le continent africain. Partenaire stratégique des gouvernements, elle conçoit et opère des plateformes de transformation numérique souveraine.",
+    goalsLabel: "[02] Objectifs",
+    goals: [
+      { title: "Fiscalité digitale", text: "Moderniser la collecte des recettes publiques : télédéclaration, paiement en ligne et suivi en temps réel." },
+      { title: "Identité numérique", text: "Donner à chaque citoyen une identité fiable pour accéder aux services publics en ligne." },
+      { title: "Intelligence artificielle", text: "Mettre l'IA au service des administrations : analyse de données, détection de fraude, assistance aux usagers." },
+      { title: "Cybersécurité", text: "Protéger les systèmes publics et les données des citoyens, avec un hébergement souverain." },
+    ],
+    projectsLabel: "[03] Projets en cours",
+    projects: [
+      { country: "DJ", title: "Plateforme de fiscalité digitale", text: "Télédéclaration et paiement des impôts en ligne pour les entreprises et les particuliers." },
+      { country: "DJ", title: "Guichet numérique des services publics", text: "Un point d'entrée unique pour les démarches administratives." },
+      { country: "SN", title: "Identité et signature numériques", text: "Authentification sécurisée des citoyens pour les services en ligne." },
+    ],
+    factsLabel: "[04] En chiffres",
+    quoteLabel: "[05] Témoignage",
+    quote: "Avec DIGIAFRICA, nous portons en Afrique la même exigence qu'en Europe et au Canada : des produits utiles, sûrs et construits avec les institutions, pas seulement pour elles.",
+    quoteAuthor: "Co-fondateur & CEO, MQS_Advisor",
+    ctaTitle: "Un projet public en Afrique ?",
+    ctaText: "Parlons de votre besoin de transformation numérique.",
   },
   team: {
     label: "[01] Équipe",

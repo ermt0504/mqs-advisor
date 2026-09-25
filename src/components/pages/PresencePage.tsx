@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useT } from "@/i18n";
 import { Globe, type CountryCode } from "@/components/site/Globe";
 import { ProjectRow } from "@/components/site/Blocks";
-import { Reveal } from "@/components/site/primitives";
+import { L, Reveal } from "@/components/site/primitives";
 import { countsByCountry } from "./HomePage";
 
 export function PresencePage() {
-  const { t } = useT();
+  const { t, paths } = useT();
   const [sel, setSel] = useState<CountryCode | null>(null);
   const list = sel ? t.projects.filter((p) => p.country === sel) : [];
 
@@ -50,6 +50,9 @@ export function PresencePage() {
               >
                 {t.presence.africa.cta} ↗
               </a>
+              <L to={paths.digiafrica} className="label-mono ml-3 mt-8 inline-block border border-line px-4 py-2.5 transition-colors hover:border-accent hover:text-accent">
+                {t.nav.digiafrica} →
+              </L>
             </div>
             <dl className="grid grid-cols-1 border-t border-line sm:grid-cols-3 lg:grid-cols-1">
               {t.presence.africa.facts.map((f) => (
