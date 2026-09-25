@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DigiafrikaRouteImport } from './routes/digiafrika'
 import { Route as EquipeRouteImport } from './routes/equipe'
 import { Route as IncubateurRouteImport } from './routes/incubateur'
 import { Route as PresenceRouteImport } from './routes/presence'
@@ -18,6 +19,7 @@ import { Route as ServicesRouteImport } from './routes/services'
 import { Route as VisionRouteImport } from './routes/vision'
 import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as EnContactRouteImport } from './routes/en.contact'
+import { Route as EnDigiafrikaRouteImport } from './routes/en.digiafrika'
 import { Route as EnIncubatorRouteImport } from './routes/en.incubator'
 import { Route as EnPresenceRouteImport } from './routes/en.presence'
 import { Route as EnServicesRouteImport } from './routes/en.services'
@@ -36,6 +38,11 @@ const IndexRoute = IndexRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigiafrikaRoute = DigiafrikaRouteImport.update({
+  id: '/digiafrika',
+  path: '/digiafrika',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EquipeRoute = EquipeRouteImport.update({
@@ -71,6 +78,11 @@ const EnIndexRoute = EnIndexRouteImport.update({
 const EnContactRoute = EnContactRouteImport.update({
   id: '/en/contact',
   path: '/en/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnDigiafrikaRoute = EnDigiafrikaRouteImport.update({
+  id: '/en/digiafrika',
+  path: '/en/digiafrika',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnIncubatorRoute = EnIncubatorRouteImport.update({
@@ -122,12 +134,14 @@ const EnProjectsSlugRoute = EnProjectsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/digiafrika': typeof DigiafrikaRoute
   '/equipe': typeof EquipeRoute
   '/incubateur': typeof IncubateurRoute
   '/presence': typeof PresenceRoute
   '/services': typeof ServicesRoute
   '/vision': typeof VisionRoute
   '/en/contact': typeof EnContactRoute
+  '/en/digiafrika': typeof EnDigiafrikaRoute
   '/en/incubator': typeof EnIncubatorRoute
   '/en/presence': typeof EnPresenceRoute
   '/en/services': typeof EnServicesRoute
@@ -142,12 +156,14 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/digiafrika': typeof DigiafrikaRoute
   '/equipe': typeof EquipeRoute
   '/incubateur': typeof IncubateurRoute
   '/presence': typeof PresenceRoute
   '/services': typeof ServicesRoute
   '/vision': typeof VisionRoute
   '/en/contact': typeof EnContactRoute
+  '/en/digiafrika': typeof EnDigiafrikaRoute
   '/en/incubator': typeof EnIncubatorRoute
   '/en/presence': typeof EnPresenceRoute
   '/en/services': typeof EnServicesRoute
@@ -163,12 +179,14 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/digiafrika': typeof DigiafrikaRoute
   '/equipe': typeof EquipeRoute
   '/incubateur': typeof IncubateurRoute
   '/presence': typeof PresenceRoute
   '/services': typeof ServicesRoute
   '/vision': typeof VisionRoute
   '/en/contact': typeof EnContactRoute
+  '/en/digiafrika': typeof EnDigiafrikaRoute
   '/en/incubator': typeof EnIncubatorRoute
   '/en/presence': typeof EnPresenceRoute
   '/en/services': typeof EnServicesRoute
@@ -185,12 +203,14 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/contact'
+    | '/digiafrika'
     | '/equipe'
     | '/incubateur'
     | '/presence'
     | '/services'
     | '/vision'
     | '/en/contact'
+    | '/en/digiafrika'
     | '/en/incubator'
     | '/en/presence'
     | '/en/services'
@@ -205,12 +225,14 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contact'
+    | '/digiafrika'
     | '/equipe'
     | '/incubateur'
     | '/presence'
     | '/services'
     | '/vision'
     | '/en/contact'
+    | '/en/digiafrika'
     | '/en/incubator'
     | '/en/presence'
     | '/en/services'
@@ -225,12 +247,14 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/contact'
+    | '/digiafrika'
     | '/equipe'
     | '/incubateur'
     | '/presence'
     | '/services'
     | '/vision'
     | '/en/contact'
+    | '/en/digiafrika'
     | '/en/incubator'
     | '/en/presence'
     | '/en/services'
@@ -246,12 +270,14 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
+  DigiafrikaRoute: typeof DigiafrikaRoute
   EquipeRoute: typeof EquipeRoute
   IncubateurRoute: typeof IncubateurRoute
   PresenceRoute: typeof PresenceRoute
   ServicesRoute: typeof ServicesRoute
   VisionRoute: typeof VisionRoute
   EnContactRoute: typeof EnContactRoute
+  EnDigiafrikaRoute: typeof EnDigiafrikaRoute
   EnIncubatorRoute: typeof EnIncubatorRoute
   EnPresenceRoute: typeof EnPresenceRoute
   EnServicesRoute: typeof EnServicesRoute
@@ -278,6 +304,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digiafrika': {
+      id: '/digiafrika'
+      path: '/digiafrika'
+      fullPath: '/digiafrika'
+      preLoaderRoute: typeof DigiafrikaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/equipe': {
@@ -327,6 +360,13 @@ declare module '@tanstack/react-router' {
       path: '/en/contact'
       fullPath: '/en/contact'
       preLoaderRoute: typeof EnContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/digiafrika': {
+      id: '/en/digiafrika'
+      path: '/en/digiafrika'
+      fullPath: '/en/digiafrika'
+      preLoaderRoute: typeof EnDigiafrikaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/incubator': {
@@ -398,12 +438,14 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
+  DigiafrikaRoute: DigiafrikaRoute,
   EquipeRoute: EquipeRoute,
   IncubateurRoute: IncubateurRoute,
   PresenceRoute: PresenceRoute,
   ServicesRoute: ServicesRoute,
   VisionRoute: VisionRoute,
   EnContactRoute: EnContactRoute,
+  EnDigiafrikaRoute: EnDigiafrikaRoute,
   EnIncubatorRoute: EnIncubatorRoute,
   EnPresenceRoute: EnPresenceRoute,
   EnServicesRoute: EnServicesRoute,
