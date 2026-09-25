@@ -187,6 +187,18 @@ export const en: Dict = {
     hint: "Click a country to see its projects.",
     hq: "HQ",
     panelEmpty: "No published project for this country.",
+    africa: {
+      label: "[02] In Africa",
+      title: "In Africa, we operate as DIGIAFRICA.",
+      text: "DIGIAFRICA SARL is the entity that delivers all our projects on the continent. A strategic partner to African governments, it builds sovereign digital transformation platforms: digital taxation, digital identity, artificial intelligence and cybersecurity.",
+      facts: [
+        { value: "10", label: "Platforms delivered" },
+        { value: "2 yrs", label: "Presence in Djibouti" },
+        { value: "SN · DJ", label: "Countries of operation" },
+      ],
+      cta: "Visit DIGIAFRICA",
+      url: "https://app.digiafrika.com/",
+    },
   },
   team: {
     label: "[01] Team",
