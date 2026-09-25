@@ -2,12 +2,12 @@ import { useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { useT } from "@/i18n";
 import { recommendWebsite } from "@/lib/advisor.functions";
-import { Reveal, Section } from "./primitives";
+import { L, Reveal, Section } from "./primitives";
 
 type Result = Awaited<ReturnType<typeof recommendWebsite>>;
 
 export function IdeaAdvisor() {
-  const { t, lang } = useT();
+  const { t, lang, paths } = useT();
   const a = t.advisor;
   const run = useServerFn(recommendWebsite);
   const [idea, setIdea] = useState("");

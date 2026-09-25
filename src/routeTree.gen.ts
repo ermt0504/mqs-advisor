@@ -16,6 +16,7 @@ import { Route as EquipeRouteImport } from './routes/equipe'
 import { Route as IncubateurRouteImport } from './routes/incubateur'
 import { Route as PresenceRouteImport } from './routes/presence'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as VisionRouteImport } from './routes/vision'
 import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as EnContactRouteImport } from './routes/en.contact'
@@ -63,6 +64,11 @@ const PresenceRoute = PresenceRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VisionRoute = VisionRouteImport.update({
@@ -139,6 +145,7 @@ export interface FileRoutesByFullPath {
   '/incubateur': typeof IncubateurRoute
   '/presence': typeof PresenceRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision': typeof VisionRoute
   '/en/contact': typeof EnContactRoute
   '/en/digiafrika': typeof EnDigiafrikaRoute
@@ -161,6 +168,7 @@ export interface FileRoutesByTo {
   '/incubateur': typeof IncubateurRoute
   '/presence': typeof PresenceRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision': typeof VisionRoute
   '/en/contact': typeof EnContactRoute
   '/en/digiafrika': typeof EnDigiafrikaRoute
@@ -184,6 +192,7 @@ export interface FileRoutesById {
   '/incubateur': typeof IncubateurRoute
   '/presence': typeof PresenceRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision': typeof VisionRoute
   '/en/contact': typeof EnContactRoute
   '/en/digiafrika': typeof EnDigiafrikaRoute
@@ -208,6 +217,7 @@ export interface FileRouteTypes {
     | '/incubateur'
     | '/presence'
     | '/services'
+    | '/sitemap.xml'
     | '/vision'
     | '/en/contact'
     | '/en/digiafrika'
@@ -230,6 +240,7 @@ export interface FileRouteTypes {
     | '/incubateur'
     | '/presence'
     | '/services'
+    | '/sitemap.xml'
     | '/vision'
     | '/en/contact'
     | '/en/digiafrika'
@@ -252,6 +263,7 @@ export interface FileRouteTypes {
     | '/incubateur'
     | '/presence'
     | '/services'
+    | '/sitemap.xml'
     | '/vision'
     | '/en/contact'
     | '/en/digiafrika'
@@ -275,6 +287,7 @@ export interface RootRouteChildren {
   IncubateurRoute: typeof IncubateurRoute
   PresenceRoute: typeof PresenceRoute
   ServicesRoute: typeof ServicesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   VisionRoute: typeof VisionRoute
   EnContactRoute: typeof EnContactRoute
   EnDigiafrikaRoute: typeof EnDigiafrikaRoute
@@ -339,6 +352,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/vision': {
@@ -443,6 +463,7 @@ const rootRouteChildren: RootRouteChildren = {
   IncubateurRoute: IncubateurRoute,
   PresenceRoute: PresenceRoute,
   ServicesRoute: ServicesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   VisionRoute: VisionRoute,
   EnContactRoute: EnContactRoute,
   EnDigiafrikaRoute: EnDigiafrikaRoute,
