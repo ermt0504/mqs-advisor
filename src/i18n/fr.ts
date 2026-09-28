@@ -130,7 +130,7 @@ export const fr = {
     },
     { slug: "senegal", name: "Projet confidentiel", country: "SN", sector: "", status: "wip", url: "", desc: "", confidential: true },
     { slug: "djibouti", name: "Projet confidentiel", country: "DJ", sector: "", status: "wip", url: "", desc: "", confidential: true },
-    { slug: "canada", name: "Projet confidentiel", country: "CA", sector: "", status: "wip", url: "", desc: "", confidential: true },
+    { slug: "waahlex", name: "Waahlex", country: "CA", sector: "Fiscalité", status: "live", url: "https://www.waahlex.ca/", desc: "Plateforme pour cabinets comptables : collecte documentaire, suivi des dossiers, portail client et agent IA qui pré-remplit les déclarations. Conforme à la Loi 25, données au Canada.", confidential: false },
   ] as Project[],
   vision: {
     label: "[01] Manifeste",
