@@ -129,7 +129,23 @@ export const en: Dict = {
     },
     { slug: "senegal", name: "Confidential project", country: "SN", sector: "", status: "wip", url: "", desc: "", confidential: true },
     { slug: "djibouti", name: "Confidential project", country: "DJ", sector: "", status: "wip", url: "", desc: "", confidential: true },
-    { slug: "waahlex", name: "Waahlex", country: "CA", sector: "Tax", status: "live", url: "https://www.waahlex.ca/", desc: "Platform for accounting firms: document collection, file tracking, client portal and an AI agent that pre-fills tax returns. Law 25 compliant, data hosted in Canada.", confidential: false },
+    {
+      slug: "waahlex", name: "Waahlex", country: "CA", sector: "Tax", status: "live", url: "https://www.waahlex.ca/",
+      desc: "You file the returns, we handle the rest. Waahlex centralises document collection, file tracking and client communication for accounting firms, powered by an AI agent that pre-fills tax returns. Deliver more files, with less chaos.",
+      confidential: false,
+      facts: [
+        { value: "−60%", label: "Data entry time per T1 file" },
+        { value: "×2.5", label: "Files handled with the same team" },
+        { value: "100%", label: "The accountant validates every file" },
+        { value: "Law 25", label: "Compliant · data in Canada" },
+      ],
+      features: [
+        { title: "Per-file workflow", text: "Collection, preparation, review, signature, payment, delivery: every step is tracked and blockers are visible at once." },
+        { title: "Client portal", text: "Web or mobile: questionnaire, secure upload and document tracking, without repeated calls." },
+        { title: "Document collection", text: "Dynamic questionnaires, supporting documents and client history grouped by file." },
+        { title: "Waahlex AI agent", text: "A built-in accounting agent that pre-fills returns, always validated by a human." },
+      ],
+    },
   ],
   vision: {
     label: "[01] Manifesto",

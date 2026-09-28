@@ -130,7 +130,23 @@ export const fr = {
     },
     { slug: "senegal", name: "Projet confidentiel", country: "SN", sector: "", status: "wip", url: "", desc: "", confidential: true },
     { slug: "djibouti", name: "Projet confidentiel", country: "DJ", sector: "", status: "wip", url: "", desc: "", confidential: true },
-    { slug: "waahlex", name: "Waahlex", country: "CA", sector: "Fiscalité", status: "live", url: "https://www.waahlex.ca/", desc: "Plateforme pour cabinets comptables : collecte documentaire, suivi des dossiers, portail client et agent IA qui pré-remplit les déclarations. Conforme à la Loi 25, données au Canada.", confidential: false },
+    {
+      slug: "waahlex", name: "Waahlex", country: "CA", sector: "Fiscalité", status: "live", url: "https://www.waahlex.ca/",
+      desc: "Vous faites vos déclarations, on fait le reste. Waahlex centralise la collecte documentaire, le suivi des dossiers et la communication client des cabinets comptables, augmentée par un agent IA qui pré-remplit les déclarations. Livrez plus de dossiers, avec moins de chaos.",
+      confidential: false,
+      facts: [
+        { value: "−60%", label: "Temps de saisie par dossier T1" },
+        { value: "×2,5", label: "Dossiers traités à équipe constante" },
+        { value: "100%", label: "Le comptable valide chaque dossier" },
+        { value: "Loi 25", label: "Conforme · données au Canada" },
+      ],
+      features: [
+        { title: "Workflow par dossier", text: "Collecte, préparation, révision, signature, paiement, livraison : chaque étape est suivie et ce qui bloque se voit tout de suite." },
+        { title: "Portail client", text: "Web ou mobile : questionnaire, dépôt sécurisé et suivi des pièces, sans appels répétés." },
+        { title: "Collecte documentaire", text: "Questionnaires dynamiques, pièces justificatives et historique client regroupés par dossier." },
+        { title: "Agent IA Waahlex", text: "Un agent comptable intégré qui pré-remplit les déclarations, toujours validé par l'humain." },
+      ],
+    },
   ] as Project[],
   vision: {
     label: "[01] Manifeste",
@@ -288,6 +304,8 @@ export type Project = {
   url: string;
   desc: string;
   confidential: boolean;
+  facts?: { value: string; label: string }[];
+  features?: { title: string; text: string }[];
 };
 
 export type Dict = typeof fr;
