@@ -6,8 +6,9 @@ import { CtaBand, PageHero, ProjectRow } from "@/components/site/Blocks";
 import { L, Placeholder, Reveal, Section } from "@/components/site/primitives";
 import saturneImg from "@/assets/project-saturne-pro.jpg";
 import tcmImg from "@/assets/project-tcm.jpg";
+import waahlexImg from "@/assets/project-waahlex.jpg";
 
-const IMAGES: Record<string, string> = { "saturne-pro": saturneImg, "taxi-conventionne-medical": tcmImg };
+const IMAGES: Record<string, string> = { "saturne-pro": saturneImg, "taxi-conventionne-medical": tcmImg, waahlex: waahlexImg };
 
 const COUNTRIES = ["FR", "SN", "DJ", "CA"] as const;
 const STATUSES = ["live", "wip"] as const;
@@ -112,6 +113,27 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
             <img src={IMAGES[p.slug]} alt={p.name} width={1600} height={912} loading="lazy" className="mt-14 aspect-[16/9] w-full object-cover" />
           ) : (
             <Placeholder className="mt-14 flex aspect-[16/9] items-center justify-center">{t.common.imageSlot}</Placeholder>
+          )}
+          {p.facts && (
+            <dl className="mt-14 grid grid-cols-2 border-t border-line lg:grid-cols-4">
+              {p.facts.map((f) => (
+                <div key={f.label} className="border-b border-line py-6 pr-4">
+                  <dd className="font-display text-4xl font-extrabold tracking-[-.04em] text-accent">{f.value}</dd>
+                  <dt className="label-mono mt-2 text-muted-foreground">{f.label}</dt>
+                </div>
+              ))}
+            </dl>
+          )}
+          {p.features && (
+            <div className="mt-14 grid gap-px border border-line bg-line md:grid-cols-2">
+              {p.features.map((f, i) => (
+                <div key={f.title} className="bg-background p-8">
+                  <div className="label-mono text-accent">0{i + 1}</div>
+                  <h3 className="mt-4 font-display text-xl font-bold uppercase">{f.title}</h3>
+                  <p className="mt-3 font-sans text-muted-foreground">{f.text}</p>
+                </div>
+              ))}
+            </div>
           )}
         </Reveal>
       </Section>
