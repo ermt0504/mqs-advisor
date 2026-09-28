@@ -129,7 +129,7 @@ export const en: Dict = {
     },
     { slug: "senegal", name: "Confidential project", country: "SN", sector: "", status: "wip", url: "", desc: "", confidential: true },
     { slug: "djibouti", name: "Confidential project", country: "DJ", sector: "", status: "wip", url: "", desc: "", confidential: true },
-    { slug: "canada", name: "Confidential project", country: "CA", sector: "", status: "wip", url: "", desc: "", confidential: true },
+    { slug: "waahlex", name: "Waahlex", country: "CA", sector: "Tax", status: "live", url: "https://www.waahlex.ca/", desc: "Platform for accounting firms: document collection, file tracking, client portal and an AI agent that pre-fills tax returns. Law 25 compliant, data hosted in Canada.", confidential: false },
   ],
   vision: {
     label: "[01] Manifesto",
