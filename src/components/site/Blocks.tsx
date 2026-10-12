@@ -62,7 +62,7 @@ export function ProjectRow({ p }: { p: Project }) {
   );
 }
 
-export function ProjectCard({ p, image }: { p: Project; image?: string }) {
+export function ProjectCard({ p, image }: { p: Project; image?: string | undefined }) {
   const { t, lang } = useT();
   return (
     <L to={projectPath(lang, p.slug)} className="group flex flex-col bg-background transition-colors hover:bg-muted">
