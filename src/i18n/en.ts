@@ -98,7 +98,7 @@ export const en: Dict = {
     figuresLabel: "[02] Key figures",
     figures: [
       { value: 4, label: "Countries" },
-      { value: 2, label: "Live products" },
+      { value: 3, label: "Live products · Health, Mobility, Tax" },
       { value: 3, label: "Projects in progress" },
     ],
     portfolioLabel: "[03] Portfolio",

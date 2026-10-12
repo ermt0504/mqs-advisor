@@ -99,7 +99,7 @@ export const fr = {
     figuresLabel: "[02] Chiffres clés",
     figures: [
       { value: 4, label: "Pays" },
-      { value: 2, label: "Produits en ligne" },
+      { value: 3, label: "Produits en ligne · Santé, Mobilité, Fiscalité" },
       { value: 3, label: "Projets en cours" },
     ],
     portfolioLabel: "[03] Portefeuille",
