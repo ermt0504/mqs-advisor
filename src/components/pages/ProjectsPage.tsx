@@ -7,8 +7,9 @@ import { L, Placeholder, Reveal, Section } from "@/components/site/primitives";
 import saturneImg from "@/assets/project-saturne-pro.jpg";
 import tcmImg from "@/assets/project-tcm.jpg";
 import waahlexImg from "@/assets/project-waahlex.jpg";
+import marteeImg from "@/assets/project-martee.jpg";
 
-const IMAGES: Record<string, string> = { "saturne-pro": saturneImg, "taxi-conventionne-medical": tcmImg, waahlex: waahlexImg };
+const IMAGES: Record<string, string> = { "saturne-pro": saturneImg, "taxi-conventionne-medical": tcmImg, waahlex: waahlexImg, martee: marteeImg };
 
 const COUNTRIES = ["FR", "SN", "DJ", "CA"] as const;
 const STATUSES = ["live", "wip"] as const;

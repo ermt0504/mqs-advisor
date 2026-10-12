@@ -29,6 +29,10 @@ export const fr = {
       title: "DIGIAFRICA — Transformation numérique souveraine en Afrique | MQS_Advisor",
       description: "DIGIAFRICA, l'entité africaine de MQS_Advisor : fiscalité digitale, identité numérique, IA et cybersécurité pour les gouvernements au Sénégal et à Djibouti.",
     },
+    join: {
+      title: "Rejoindre MQS — Candidature | MQS_Advisor",
+      description: "Rejoignez MQS_Advisor : développeurs, designers, juristes, chefs de projet. Postulez en 3 étapes.",
+    },
     contact: {
       title: "Contact — MQS_Advisor",
       description: "Contactez MQS_Advisor ou soumettez votre projet à l'incubateur.",
@@ -42,6 +46,7 @@ export const fr = {
     presence: "Présence",
     team: "Équipe",
     digiafrica: "DIGIAFRICA",
+    join: "Rejoindre MQS",
     contact: "Contact",
     submit: "Soumettre un projet",
     menu: "Menu",
@@ -131,7 +136,7 @@ export const fr = {
     { slug: "senegal", name: "Projet confidentiel", country: "SN", sector: "", status: "wip", url: "", desc: "", confidential: true },
     { slug: "djibouti", name: "Projet confidentiel", country: "DJ", sector: "", status: "wip", url: "", desc: "", confidential: true },
     {
-      slug: "martee", name: "Martee", country: "FR", sector: "Voyage", status: "wip", url: "",
+      slug: "martee", name: "Martee", country: "FR", sector: "Voyage", status: "wip", url: "https://martee.app/",
       desc: "Nous organisons, vous créez les souvenirs. Martee est l'application qui simplifie l'organisation des voyages, seul, en famille ou entre amis : explorer des destinations, planifier ensemble, partager ses aventures. Incubé par MQS_Advisor, en cours de développement.",
       confidential: false,
       features: [
@@ -172,6 +177,13 @@ export const fr = {
       "France. Sénégal. Djibouti. Canada.",
     ],
     note: "",
+    meaningLabel: "[00] Ce que signifie MQS",
+    meaningTitle: "Trois lettres. Un engagement.",
+    meaning: [
+      { letter: "M", word: "Mission", text: "Chaque produit répond à un besoin réel : un citoyen, une entreprise, un État. Nous ne construisons rien sans raison d'être." },
+      { letter: "Q", word: "Qualité", text: "Du code au contrat, l'exigence est la même. Ce que nous livrons tient en production et devant la loi." },
+      { letter: "S", word: "Souveraineté", text: "Nous bâtissons des outils qui appartiennent à ceux qui les utilisent : des données maîtrisées, des sociétés indépendantes, des États autonomes." },
+    ],
   },
   services: {
     label: "[01] Services",
@@ -272,7 +284,27 @@ export const fr = {
     joinLabel: "[02] Rejoindre MQS",
     joinTitle: "Rejoindre MQS.",
     joinText: "Développeurs, designers produit, juristes, chefs de projet : nous cherchons des profils qui veulent construire des produits utiles et les voir devenir des sociétés. Envoyez-nous votre candidature spontanée.",
-    joinCta: "Nous écrire",
+    joinCta: "Postuler",
+  },
+  join: {
+    label: "[01] Rejoindre MQS",
+    title: "Construisez avec nous.",
+    intro: "Nous cherchons des bâtisseurs : des profils qui veulent concevoir des produits utiles et les voir devenir des sociétés, en France, en Afrique et au Canada.",
+    stepsLabel: "[02] Le parcours",
+    steps: [
+      { title: "Candidature", text: "Remplissez le formulaire ci-dessous. 5 minutes suffisent." },
+      { title: "Premier échange", text: "Sous 10 jours, un fondateur vous appelle pour faire connaissance." },
+      { title: "Cas pratique", text: "Un exercice court, lié à un de nos projets réels." },
+      { title: "Bienvenue", text: "Proposition, intégration et premier projet." },
+    ],
+    formLabel: "[03] Candidature",
+    role: "Poste visé",
+    roles: ["Développeur·se", "Designer produit", "Juriste", "Chef·fe de projet", "Commercial·e / partenariats", "Candidature spontanée"],
+    location: "Ville / pays",
+    linkLabel: "LinkedIn ou portfolio",
+    motivation: "Pourquoi MQS ?",
+    cv: "CV (PDF, 10 Mo max)",
+    success: "Merci ! Votre candidature est bien reçue. Nous revenons vers vous sous 10 jours.",
   },
   contact: {
     label: "[01] Contact",

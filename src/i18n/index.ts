@@ -3,7 +3,7 @@ import { fr } from "./fr";
 import { en } from "./en";
 
 export type Lang = "fr" | "en";
-export type PageKey = "home" | "vision" | "services" | "incubator" | "projects" | "presence" | "team" | "digiafrica" | "contact";
+export type PageKey = "home" | "vision" | "services" | "incubator" | "projects" | "presence" | "team" | "digiafrica" | "join" | "contact";
 export type NavKey = Exclude<PageKey, "home">;
 
 export const DICTS = { fr, en };
@@ -18,6 +18,7 @@ export const PATHS: Record<Lang, Record<PageKey, string>> = {
     presence: "/presence",
     team: "/equipe",
     digiafrica: "/digiafrika",
+    join: "/rejoindre",
     contact: "/contact",
   },
   en: {
@@ -29,6 +30,7 @@ export const PATHS: Record<Lang, Record<PageKey, string>> = {
     presence: "/en/presence",
     team: "/en/team",
     digiafrica: "/en/digiafrika",
+    join: "/en/join",
     contact: "/en/contact",
   },
 };

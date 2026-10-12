@@ -44,7 +44,7 @@ export function TeamPage() {
           <h2 className="h-section">{t.team.joinTitle}</h2>
           <p className="mt-6 max-w-xl font-sans text-lg text-muted-2">{t.team.joinText}</p>
           <L
-            to={paths.contact}
+            to={paths.join}
             className="mt-10 inline-block border border-accent px-5 py-3.5 text-sm uppercase tracking-[.08em] text-accent transition-colors hover:bg-accent hover:text-accent-foreground"
           >
             {t.team.joinCta} →
