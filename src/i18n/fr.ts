@@ -133,8 +133,8 @@ export const fr = {
       desc: "Réservation de transports médicaux ponctuels ou réguliers, partout en France.",
       confidential: false,
     },
-    { slug: "senegal", name: "Projet confidentiel", country: "SN", sector: "", status: "wip", url: "", desc: "", confidential: true },
-    { slug: "djibouti", name: "Projet confidentiel", country: "DJ", sector: "", status: "wip", url: "", desc: "", confidential: true },
+    { slug: "senegal", name: "Identité numérique Sénégal", country: "SN", sector: "GovTech", status: "wip", url: "", desc: "", confidential: true },
+    { slug: "djibouti", name: "Fiscalité numérique Djibouti", country: "DJ", sector: "GovTech", status: "wip", url: "", desc: "", confidential: true },
     {
       slug: "martee", name: "Martee", country: "FR", sector: "Voyage", status: "wip", url: "https://martee.app/",
       desc: "Nous organisons, vous créez les souvenirs. Martee est l'application qui simplifie l'organisation des voyages, seul, en famille ou entre amis : explorer des destinations, planifier ensemble, partager ses aventures. Incubé par MQS_Advisor, en cours de développement.",
@@ -227,6 +227,11 @@ export const fr = {
     empty: "Aucun projet pour ces filtres.",
     detailLabel: "[01] Projet",
     confidentialText: "Ce projet est confidentiel. Les informations seront publiées ultérieurement.",
+    confidentialBadge: "Confidentiel",
+    search: "Rechercher un projet",
+    more: "Afficher plus",
+    viewAll: "Voir tous les projets",
+    results: (n: number) => (n <= 1 ? `${n} projet` : `${n} projets`),
   },
   presence: {
     label: "[01] Présence",

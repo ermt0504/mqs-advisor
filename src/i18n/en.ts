@@ -132,8 +132,8 @@ export const en: Dict = {
       desc: "Booking of one-off or recurring medical transport, anywhere in France.",
       confidential: false,
     },
-    { slug: "senegal", name: "Confidential project", country: "SN", sector: "", status: "wip", url: "", desc: "", confidential: true },
-    { slug: "djibouti", name: "Confidential project", country: "DJ", sector: "", status: "wip", url: "", desc: "", confidential: true },
+    { slug: "senegal", name: "Senegal Digital Identity", country: "SN", sector: "GovTech", status: "wip", url: "", desc: "", confidential: true },
+    { slug: "djibouti", name: "Djibouti Digital Taxation", country: "DJ", sector: "GovTech", status: "wip", url: "", desc: "", confidential: true },
     {
       slug: "martee", name: "Martee", country: "FR", sector: "Travel", status: "wip", url: "https://martee.app/",
       desc: "We make plans. You make memories. Martee is the app that makes trip planning simple, solo, with family or with friends: explore destinations, plan together, share your adventures. Incubated by MQS_Advisor, currently in development.",
@@ -226,6 +226,11 @@ export const en: Dict = {
     empty: "No project matches these filters.",
     detailLabel: "[01] Project",
     confidentialText: "This project is confidential. Details will be published later.",
+    confidentialBadge: "Confidential",
+    search: "Search a project",
+    more: "Show more",
+    viewAll: "View all projects",
+    results: (n: number) => (n === 1 ? "1 project" : `${n} projects`),
   },
   presence: {
     label: "[01] Presence",
