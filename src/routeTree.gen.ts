@@ -15,6 +15,7 @@ import { Route as DigiafrikaRouteImport } from './routes/digiafrika'
 import { Route as EquipeRouteImport } from './routes/equipe'
 import { Route as IncubateurRouteImport } from './routes/incubateur'
 import { Route as PresenceRouteImport } from './routes/presence'
+import { Route as RejoindreRouteImport } from './routes/rejoindre'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as VisionRouteImport } from './routes/vision'
@@ -22,6 +23,7 @@ import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as EnContactRouteImport } from './routes/en.contact'
 import { Route as EnDigiafrikaRouteImport } from './routes/en.digiafrika'
 import { Route as EnIncubatorRouteImport } from './routes/en.incubator'
+import { Route as EnJoinRouteImport } from './routes/en.join'
 import { Route as EnPresenceRouteImport } from './routes/en.presence'
 import { Route as EnServicesRouteImport } from './routes/en.services'
 import { Route as EnTeamRouteImport } from './routes/en.team'
@@ -61,6 +63,11 @@ const PresenceRoute = PresenceRouteImport.update({
   path: '/presence',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RejoindreRoute = RejoindreRouteImport.update({
+  id: '/rejoindre',
+  path: '/rejoindre',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -94,6 +101,11 @@ const EnDigiafrikaRoute = EnDigiafrikaRouteImport.update({
 const EnIncubatorRoute = EnIncubatorRouteImport.update({
   id: '/en/incubator',
   path: '/en/incubator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnJoinRoute = EnJoinRouteImport.update({
+  id: '/en/join',
+  path: '/en/join',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnPresenceRoute = EnPresenceRouteImport.update({
@@ -144,12 +156,14 @@ export interface FileRoutesByFullPath {
   '/equipe': typeof EquipeRoute
   '/incubateur': typeof IncubateurRoute
   '/presence': typeof PresenceRoute
+  '/rejoindre': typeof RejoindreRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision': typeof VisionRoute
   '/en/contact': typeof EnContactRoute
   '/en/digiafrika': typeof EnDigiafrikaRoute
   '/en/incubator': typeof EnIncubatorRoute
+  '/en/join': typeof EnJoinRoute
   '/en/presence': typeof EnPresenceRoute
   '/en/services': typeof EnServicesRoute
   '/en/team': typeof EnTeamRoute
@@ -167,12 +181,14 @@ export interface FileRoutesByTo {
   '/equipe': typeof EquipeRoute
   '/incubateur': typeof IncubateurRoute
   '/presence': typeof PresenceRoute
+  '/rejoindre': typeof RejoindreRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision': typeof VisionRoute
   '/en/contact': typeof EnContactRoute
   '/en/digiafrika': typeof EnDigiafrikaRoute
   '/en/incubator': typeof EnIncubatorRoute
+  '/en/join': typeof EnJoinRoute
   '/en/presence': typeof EnPresenceRoute
   '/en/services': typeof EnServicesRoute
   '/en/team': typeof EnTeamRoute
@@ -191,12 +207,14 @@ export interface FileRoutesById {
   '/equipe': typeof EquipeRoute
   '/incubateur': typeof IncubateurRoute
   '/presence': typeof PresenceRoute
+  '/rejoindre': typeof RejoindreRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision': typeof VisionRoute
   '/en/contact': typeof EnContactRoute
   '/en/digiafrika': typeof EnDigiafrikaRoute
   '/en/incubator': typeof EnIncubatorRoute
+  '/en/join': typeof EnJoinRoute
   '/en/presence': typeof EnPresenceRoute
   '/en/services': typeof EnServicesRoute
   '/en/team': typeof EnTeamRoute
@@ -216,12 +234,14 @@ export interface FileRouteTypes {
     | '/equipe'
     | '/incubateur'
     | '/presence'
+    | '/rejoindre'
     | '/services'
     | '/sitemap.xml'
     | '/vision'
     | '/en/contact'
     | '/en/digiafrika'
     | '/en/incubator'
+    | '/en/join'
     | '/en/presence'
     | '/en/services'
     | '/en/team'
@@ -239,12 +259,14 @@ export interface FileRouteTypes {
     | '/equipe'
     | '/incubateur'
     | '/presence'
+    | '/rejoindre'
     | '/services'
     | '/sitemap.xml'
     | '/vision'
     | '/en/contact'
     | '/en/digiafrika'
     | '/en/incubator'
+    | '/en/join'
     | '/en/presence'
     | '/en/services'
     | '/en/team'
@@ -262,12 +284,14 @@ export interface FileRouteTypes {
     | '/equipe'
     | '/incubateur'
     | '/presence'
+    | '/rejoindre'
     | '/services'
     | '/sitemap.xml'
     | '/vision'
     | '/en/contact'
     | '/en/digiafrika'
     | '/en/incubator'
+    | '/en/join'
     | '/en/presence'
     | '/en/services'
     | '/en/team'
@@ -286,12 +310,14 @@ export interface RootRouteChildren {
   EquipeRoute: typeof EquipeRoute
   IncubateurRoute: typeof IncubateurRoute
   PresenceRoute: typeof PresenceRoute
+  RejoindreRoute: typeof RejoindreRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   VisionRoute: typeof VisionRoute
   EnContactRoute: typeof EnContactRoute
   EnDigiafrikaRoute: typeof EnDigiafrikaRoute
   EnIncubatorRoute: typeof EnIncubatorRoute
+  EnJoinRoute: typeof EnJoinRoute
   EnPresenceRoute: typeof EnPresenceRoute
   EnServicesRoute: typeof EnServicesRoute
   EnTeamRoute: typeof EnTeamRoute
@@ -347,6 +373,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PresenceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rejoindre': {
+      id: '/rejoindre'
+      path: '/rejoindre'
+      fullPath: '/rejoindre'
+      preLoaderRoute: typeof RejoindreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -394,6 +427,13 @@ declare module '@tanstack/react-router' {
       path: '/en/incubator'
       fullPath: '/en/incubator'
       preLoaderRoute: typeof EnIncubatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/join': {
+      id: '/en/join'
+      path: '/en/join'
+      fullPath: '/en/join'
+      preLoaderRoute: typeof EnJoinRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/presence': {
@@ -462,12 +502,14 @@ const rootRouteChildren: RootRouteChildren = {
   EquipeRoute: EquipeRoute,
   IncubateurRoute: IncubateurRoute,
   PresenceRoute: PresenceRoute,
+  RejoindreRoute: RejoindreRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   VisionRoute: VisionRoute,
   EnContactRoute: EnContactRoute,
   EnDigiafrikaRoute: EnDigiafrikaRoute,
   EnIncubatorRoute: EnIncubatorRoute,
+  EnJoinRoute: EnJoinRoute,
   EnPresenceRoute: EnPresenceRoute,
   EnServicesRoute: EnServicesRoute,
   EnTeamRoute: EnTeamRoute,
