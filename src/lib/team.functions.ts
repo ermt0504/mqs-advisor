@@ -9,7 +9,7 @@ function sessionConfig() {
     password: process.env["SESSION_SECRET"]!,
     name: "mqs-team",
     maxAge: 60 * 60 * 12,
-    cookie: { httpOnly: true, secure: true, sameSite: "lax" as const, path: "/" },
+    cookie: { httpOnly: true, secure: true, sameSite: "none" as const, path: "/" },
   };
 }
 
@@ -34,7 +34,7 @@ export const teamLogin = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const expected = process.env["TEAM_PASSWORD"];
     if (!expected) return { ok: false as const };
-    if (!(await passwordMatches(data.password, expected))) return { ok: false as const };
+    if (!(await passwordMatches(data.password.trim(), expected.trim()))) return { ok: false as const };
     const s = await useSession<GateSession>(sessionConfig());
     await s.update({ unlocked: true });
     return { ok: true as const };
