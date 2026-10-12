@@ -1,0 +1,2 @@
+ALTER TABLE public.submissions DROP CONSTRAINT IF EXISTS submissions_kind_check;
+ALTER TABLE public.submissions ADD CONSTRAINT submissions_kind_check CHECK (kind IN ('contact','project','application'));
