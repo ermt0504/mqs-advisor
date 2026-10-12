@@ -32,8 +32,8 @@ export const en: Dict = {
       description: "DIGIAFRICA, the African entity of MQS_Advisor: digital taxation, digital identity, AI and cybersecurity for governments in Senegal and Djibouti.",
     },
     join: {
-      title: "Join MQS — Apply | MQS_Advisor",
-      description: "Join MQS_Advisor: developers, designers, lawyers, project managers. Apply in 3 steps.",
+      title: "Careers at MQS_Advisor — Apply online",
+      description: "Jobs and applications at MQS_Advisor: developer, designer, lawyer, project manager. Build products across France, Africa and Canada. Apply in 3 steps.",
     },
     contact: { title: "Contact — MQS_Advisor", description: "Contact MQS_Advisor or submit your project to the incubator." },
   },

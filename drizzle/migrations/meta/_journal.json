@@ -8,6 +8,13 @@
       "when": 1791767395541,
       "tag": "0000_allow_application_kind",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791769307064,
+      "tag": "0001_application_tracking",
+      "breakpoints": true
     }
   ]
 }
