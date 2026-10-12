@@ -1,7 +1,7 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState, type FormEvent } from "react";
-import { teamData, teamLogin, teamLogout } from "@/lib/team.functions";
+import { addEvent, deleteEvent, setStatus, teamData, teamLogin, teamLogout } from "@/lib/team.functions";
 import { fr } from "@/i18n/fr";
 
 export const Route = createFileRoute("/espace-equipe")({
@@ -109,6 +109,7 @@ function TeamSpace() {
                 {[r.organisation, r.project_name, r.country, r.sector, r.stage].filter(Boolean).join(" · ")}
               </div>
               <p className="mt-4 whitespace-pre-wrap font-sans text-[15px] text-muted-2">{r.message}</p>
+              {r.kind === "application" && <Tracking r={r} />}
               <div className="mt-3 flex gap-6 text-sm">
                 {r.link && <a href={r.link} target="_blank" rel="noreferrer" className="text-accent">Lien →</a>}
                 {r.fileUrl && <a href={r.fileUrl} target="_blank" rel="noreferrer" className="text-accent">Pièce jointe →</a>}
@@ -118,5 +119,56 @@ function TeamSpace() {
         </div>
       )}
     </section>
+  );
+}
+
+type Row = Awaited<ReturnType<typeof teamData>>["submissions"][number];
+const STATUSES = [
+  { v: "pending", l: "En attente" },
+  { v: "interview", l: "Interview" },
+  { v: "rejected", l: "Rejet" },
+] as const;
+
+function Tracking({ r }: { r: Row }) {
+  const router = useRouter();
+  const status = useServerFn(setStatus);
+  const add = useServerFn(addEvent);
+  const del = useServerFn(deleteEvent);
+  const [when, setWhen] = useState("");
+  const [note, setNote] = useState("");
+  const [busy, setBusy] = useState(false);
+  const act = async (fn: () => Promise<unknown>) => {
+    setBusy(true);
+    try { await fn(); await router.invalidate(); } finally { setBusy(false); }
+  };
+  return (
+    <div className="mt-5 border-t border-line pt-5">
+      <div className="flex flex-wrap items-center gap-px bg-line">
+        {STATUSES.map((s) => (
+          <button key={s.v} disabled={busy} onClick={() => act(() => status({ data: { id: r.id, status: s.v } }))}
+            className={`label-mono px-4 py-2 ${r.status === s.v ? (s.v === "rejected" ? "bg-destructive text-destructive-foreground" : "bg-accent text-accent-foreground") : "bg-background text-muted-foreground hover:text-ink-strong"}`}>
+            {s.l}
+          </button>
+        ))}
+      </div>
+      <div className="label-mono mt-5 text-accent">Calendrier des échanges</div>
+      <ul className="mt-3 space-y-2 font-sans text-sm">
+        {r.events.length === 0 && <li className="text-dim">Aucun échange prévu.</li>}
+        {r.events.map((e) => (
+          <li key={e.id} className="flex flex-wrap items-center gap-3">
+            <span className={`label-mono ${new Date(e.happens_at) > new Date() ? "text-ink-strong" : "text-dim"}`}>
+              {new Date(e.happens_at).toLocaleString("fr-FR", { dateStyle: "medium", timeStyle: "short" })}
+            </span>
+            <span className="text-muted-2">{e.note}</span>
+            <button disabled={busy} onClick={() => act(() => del({ data: { id: e.id } }))} className="text-dim hover:text-destructive" aria-label="Supprimer">×</button>
+          </li>
+        ))}
+      </ul>
+      <form className="mt-4 flex flex-wrap gap-3" onSubmit={(ev) => { ev.preventDefault(); if (!when || !note.trim()) return; act(async () => { await add({ data: { submissionId: r.id, happensAt: when, note } }); setWhen(""); setNote(""); }); }}>
+        <input type="datetime-local" value={when} onChange={(e) => setWhen(e.target.value)} className="field !mt-0 w-auto" aria-label="Date" />
+        <input value={note} onChange={(e) => setNote(e.target.value)} maxLength={500} placeholder="Ex. : appel avec le CTO" className="field !mt-0 min-w-[220px] flex-1" aria-label="Note" />
+        <button disabled={busy || !when || !note.trim()} className="label-mono bg-accent px-4 py-2 text-accent-foreground disabled:opacity-50">Ajouter</button>
+      </form>
+    </div>
   );
 }
