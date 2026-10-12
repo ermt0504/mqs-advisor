@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { useT } from "@/i18n";
 import { Globe, type CountryCode } from "@/components/site/Globe";
-import { CtaBand, Pipeline, ProjectCard }
-import { IMAGES } from "@/components/pages/ProjectsPage"; from "@/components/site/Blocks";
+import { CtaBand, Pipeline, ProjectCard } from "@/components/site/Blocks";
+import { IMAGES } from "@/components/pages/ProjectsPage";
 import { Counter, L, Reveal, Section } from "@/components/site/primitives";
 import { IdeaAdvisor } from "@/components/site/IdeaAdvisor";
 
