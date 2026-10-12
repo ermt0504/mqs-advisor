@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "sdk_version": "3.0.5",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "mqs-advisor",
+      "version": "0.1.0",
+      "title": "MQS Advisor"
+    },
+    "tools": [
+      {
+        "name": "list_projects",
+        "title": "List MQS projects",
+        "description": "List the products and projects built or incubated by MQS_Advisor, with country, sector and status.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "lang": {
+              "default": "fr",
+              "description": "Language: fr (default) or en.",
+              "type": "string",
+              "enum": [
+                "fr",
+                "en"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_company_info",
+        "title": "Get MQS company info",
+        "description": "Get MQS_Advisor's services, founding team and DIGIAFRICA ongoing projects.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "lang": {
+              "default": "fr",
+              "description": "Language: fr (default) or en.",
+              "type": "string",
+              "enum": [
+                "fr",
+                "en"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "recommend_website",
+        "title": "Recommend a website for an idea",
+        "description": "Use the MQS AI advisor to get personalized website recommendations (pages, features, design, next steps) for a business idea.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": false,
+          "openWorldHint": true
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "idea": {
+              "type": "string",
+              "minLength": 10,
+              "maxLength": 2000,
+              "description": "The business idea, in a few sentences."
+            },
+            "lang": {
+              "default": "fr",
+              "description": "Language: fr (default) or en.",
+              "type": "string",
+              "enum": [
+                "fr",
+                "en"
+              ]
+            }
+          },
+          "required": [
+            "idea"
+          ],
+          "additionalProperties": false
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
