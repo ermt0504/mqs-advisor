@@ -4,7 +4,6 @@ import { en } from "@/i18n/en";
 
 export const langSchema = z.enum(["fr", "en"]).default("fr").describe("Language: fr (default) or en.");
 export const dict = (lang: "fr" | "en") => (lang === "en" ? en : fr);
-export const SITE = "https://mqsadvisor.lovable.app";
 
 export const toProject = (p: (typeof fr)["projects"][number], lang: "fr" | "en") => ({
   slug: p.slug,
