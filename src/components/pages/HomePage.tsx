@@ -1,8 +1,9 @@
 import { useRef } from "react";
 import { useT } from "@/i18n";
 import { Globe, type CountryCode } from "@/components/site/Globe";
-import { CtaBand, Pipeline, ProjectRow } from "@/components/site/Blocks";
-import { Counter, Reveal, Section } from "@/components/site/primitives";
+import { CtaBand, Pipeline, ProjectCard } from "@/components/site/Blocks";
+import { IMAGES } from "@/components/pages/ProjectsPage";
+import { Counter, L, Reveal, Section } from "@/components/site/primitives";
 import { IdeaAdvisor } from "@/components/site/IdeaAdvisor";
 
 export function countsByCountry(projects: { country: CountryCode }[]) {
@@ -12,7 +13,7 @@ export function countsByCountry(projects: { country: CountryCode }[]) {
 }
 
 export function HomePage() {
-  const { t } = useT();
+  const { t, paths } = useT();
   const heroRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
 
@@ -97,13 +98,14 @@ export function HomePage() {
       </Section>
 
       <Section label={t.home.portfolioLabel} className="pt-0 md:pt-0">
-        <div className="border-t border-line">
-          {t.projects.map((p) => (
-            <Reveal key={p.slug}>
-              <ProjectRow p={p} />
-            </Reveal>
+        <div className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+          {t.projects.slice(0, 6).map((p) => (
+            <ProjectCard key={p.slug} p={p} image={IMAGES[p.slug]} />
           ))}
         </div>
+        <L to={paths.projects} className="mt-10 inline-block border border-accent px-5 py-3.5 text-sm uppercase tracking-[.08em] text-accent hover:bg-accent hover:text-accent-foreground">
+          {t.projectsPage.viewAll} ({t.projects.length}) →
+        </L>
       </Section>
 
       <IdeaAdvisor />

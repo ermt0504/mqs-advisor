@@ -2,14 +2,14 @@ import { useState } from "react";
 import { PATHS, useT } from "@/i18n";
 import type { Project } from "@/i18n/fr";
 import { cn } from "@/lib/utils";
-import { CtaBand, PageHero, ProjectRow } from "@/components/site/Blocks";
+import { ConfidentialBadge, CtaBand, PageHero, ProjectCard } from "@/components/site/Blocks";
 import { L, Placeholder, Reveal, Section } from "@/components/site/primitives";
 import saturneImg from "@/assets/project-saturne-pro.jpg";
 import tcmImg from "@/assets/project-tcm.jpg";
 import waahlexImg from "@/assets/project-waahlex.jpg";
 import marteeImg from "@/assets/project-martee.jpg";
 
-const IMAGES: Record<string, string> = { "saturne-pro": saturneImg, "taxi-conventionne-medical": tcmImg, waahlex: waahlexImg, martee: marteeImg };
+export const IMAGES: Record<string, string> = { "saturne-pro": saturneImg, "taxi-conventionne-medical": tcmImg, waahlex: waahlexImg, martee: marteeImg };
 
 const COUNTRIES = ["FR", "SN", "DJ", "CA"] as const;
 const STATUSES = ["live", "wip"] as const;
@@ -34,7 +34,15 @@ export function ProjectsPage() {
   const { t } = useT();
   const [country, setCountry] = useState<Project["country"] | null>(null);
   const [status, setStatus] = useState<Project["status"] | null>(null);
-  const list = t.projects.filter((p) => (!country || p.country === country) && (!status || p.status === status));
+  const [q, setQ] = useState("");
+  const [limit, setLimit] = useState(9);
+  const query = q.trim().toLowerCase();
+  const list = t.projects.filter(
+    (p) =>
+      (!country || p.country === country) &&
+      (!status || p.status === status) &&
+      (!query || `${p.name} ${p.sector} ${t.countries[p.country]}`.toLowerCase().includes(query)),
+  );
 
   return (
     <>
@@ -42,31 +50,47 @@ export function ProjectsPage() {
         <PageHero label={t.projectsPage.label} title={t.projectsPage.title} />
       </div>
       <Section label={t.projectsPage.label} className="pt-8 md:pt-10">
+        <input
+          type="search"
+          value={q}
+          onChange={(e) => { setQ(e.target.value); setLimit(9); }}
+          placeholder={t.projectsPage.search}
+          aria-label={t.projectsPage.search}
+          className="field mb-6 w-full max-w-md"
+        />
         <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:gap-12">
           <div role="group" aria-label={t.projectsPage.country} className="flex flex-wrap items-center gap-2">
             <span className="label-mono mr-2 text-dim">{t.projectsPage.country}</span>
-            <Chip active={!country} onClick={() => setCountry(null)}>{t.projectsPage.all}</Chip>
+            <Chip active={!country} onClick={() => { setCountry(null); setLimit(9); }}>{t.projectsPage.all}</Chip>
             {COUNTRIES.map((c) => (
-              <Chip key={c} active={country === c} onClick={() => setCountry(c)}>
+              <Chip key={c} active={country === c} onClick={() => { setCountry(c); setLimit(9); }}>
                 {t.countries[c]}
               </Chip>
             ))}
           </div>
           <div role="group" aria-label={t.projectsPage.status} className="flex flex-wrap items-center gap-2">
             <span className="label-mono mr-2 text-dim">{t.projectsPage.status}</span>
-            <Chip active={!status} onClick={() => setStatus(null)}>{t.projectsPage.all}</Chip>
+            <Chip active={!status} onClick={() => { setStatus(null); setLimit(9); }}>{t.projectsPage.all}</Chip>
             {STATUSES.map((s) => (
-              <Chip key={s} active={status === s} onClick={() => setStatus(s)}>
+              <Chip key={s} active={status === s} onClick={() => { setStatus(s); setLimit(9); }}>
                 {t.status[s]}
               </Chip>
             ))}
           </div>
         </div>
-        <div className="border-t border-line" aria-live="polite">
-          {list.length ? list.map((p) => <ProjectRow key={p.slug} p={p} />) : (
-            <p className="py-10 font-sans text-muted-foreground">{t.projectsPage.empty}</p>
-          )}
-        </div>
+        <div className="label-mono mb-4 text-dim" aria-live="polite">{t.projectsPage.results(list.length)}</div>
+        {list.length ? (
+          <div className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+            {list.slice(0, limit).map((p) => <ProjectCard key={p.slug} p={p} image={IMAGES[p.slug]} />)}
+          </div>
+        ) : (
+          <p className="py-10 font-sans text-muted-foreground">{t.projectsPage.empty}</p>
+        )}
+        {list.length > limit && (
+          <button type="button" onClick={() => setLimit((l) => l + 9)} className="mt-10 border border-line px-5 py-3.5 text-sm uppercase tracking-[.08em] hover:border-accent hover:text-accent">
+            {t.projectsPage.more} ({list.length - limit})
+          </button>
+        )}
       </Section>
       <CtaBand />
     </>
@@ -87,8 +111,9 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
             <span className={p.status === "live" ? "pulse-dot" : "size-2 rounded-full border border-dim"} aria-hidden />
             {t.countries[p.country]}
             {p.sector && ` · ${p.sector}`} · {t.status[p.status]}
+            {p.confidential && <ConfidentialBadge />}
           </div>
-          <h1 className={cn("h-giant max-w-[16ch]", p.confidential && "text-dim")} style={{ fontSize: "clamp(44px, 8vw, 112px)" }}>
+          <h1 className={cn("h-giant max-w-[16ch]", false)} style={{ fontSize: "clamp(44px, 8vw, 112px)" }}>
             {p.name}
           </h1>
         </Reveal>
@@ -110,7 +135,7 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
               </a>}
             </>
           )}
-          {IMAGES[p.slug] ? (
+          {IMAGES[p.slug] && !p.confidential ? (
             <img src={IMAGES[p.slug]} alt={p.name} width={1600} height={912} loading="lazy" className="mt-14 aspect-[16/9] w-full object-cover" />
           ) : (
             <Placeholder className="mt-14 flex aspect-[16/9] items-center justify-center">{t.common.imageSlot}</Placeholder>
