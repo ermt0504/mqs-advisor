@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DigiafrikaRouteImport } from './routes/digiafrika'
 import { Route as EquipeRouteImport } from './routes/equipe'
+import { Route as EspaceEquipeRouteImport } from './routes/espace-equipe'
 import { Route as IncubateurRouteImport } from './routes/incubateur'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as PresenceRouteImport } from './routes/presence'
@@ -53,6 +54,11 @@ const DigiafrikaRoute = DigiafrikaRouteImport.update({
 const EquipeRoute = EquipeRouteImport.update({
   id: '/equipe',
   path: '/equipe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EspaceEquipeRoute = EspaceEquipeRouteImport.update({
+  id: '/espace-equipe',
+  path: '/espace-equipe',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IncubateurRoute = IncubateurRouteImport.update({
@@ -167,6 +173,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/digiafrika': typeof DigiafrikaRoute
   '/equipe': typeof EquipeRoute
+  '/espace-equipe': typeof EspaceEquipeRoute
   '/incubateur': typeof IncubateurRoute
   '/mcp': typeof McpRoute
   '/presence': typeof PresenceRoute
@@ -194,6 +201,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/digiafrika': typeof DigiafrikaRoute
   '/equipe': typeof EquipeRoute
+  '/espace-equipe': typeof EspaceEquipeRoute
   '/incubateur': typeof IncubateurRoute
   '/mcp': typeof McpRoute
   '/presence': typeof PresenceRoute
@@ -222,6 +230,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/digiafrika': typeof DigiafrikaRoute
   '/equipe': typeof EquipeRoute
+  '/espace-equipe': typeof EspaceEquipeRoute
   '/incubateur': typeof IncubateurRoute
   '/mcp': typeof McpRoute
   '/presence': typeof PresenceRoute
@@ -251,6 +260,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/digiafrika'
     | '/equipe'
+    | '/espace-equipe'
     | '/incubateur'
     | '/mcp'
     | '/presence'
@@ -278,6 +288,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/digiafrika'
     | '/equipe'
+    | '/espace-equipe'
     | '/incubateur'
     | '/mcp'
     | '/presence'
@@ -305,6 +316,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/digiafrika'
     | '/equipe'
+    | '/espace-equipe'
     | '/incubateur'
     | '/mcp'
     | '/presence'
@@ -333,6 +345,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DigiafrikaRoute: typeof DigiafrikaRoute
   EquipeRoute: typeof EquipeRoute
+  EspaceEquipeRoute: typeof EspaceEquipeRoute
   IncubateurRoute: typeof IncubateurRoute
   McpRoute: typeof McpRoute
   PresenceRoute: typeof PresenceRoute
@@ -384,6 +397,13 @@ declare module '@tanstack/react-router' {
       path: '/equipe'
       fullPath: '/equipe'
       preLoaderRoute: typeof EquipeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/espace-equipe': {
+      id: '/espace-equipe'
+      path: '/espace-equipe'
+      fullPath: '/espace-equipe'
+      preLoaderRoute: typeof EspaceEquipeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/incubateur': {
@@ -541,6 +561,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DigiafrikaRoute: DigiafrikaRoute,
   EquipeRoute: EquipeRoute,
+  EspaceEquipeRoute: EspaceEquipeRoute,
   IncubateurRoute: IncubateurRoute,
   McpRoute: McpRoute,
   PresenceRoute: PresenceRoute,
