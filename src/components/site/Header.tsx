@@ -3,13 +3,15 @@ import { useEffect, useState } from "react";
 import { switchPath, useT, type NavKey } from "@/i18n";
 import { cn } from "@/lib/utils";
 import { L } from "./primitives";
+import logoImg from "@/assets/mqs-logo-light.png";
 
 const NAV: NavKey[] = ["vision", "services", "incubator", "projects", "presence", "team"];
 
 export function Logo({ className }: { className?: string }) {
   return (
-    <span className={cn("font-display font-extrabold tracking-normal normal-case", className)}>
-      MQS<span className="text-accent">_</span>Advisor
+    <span className={cn("flex items-center gap-2 font-display font-extrabold tracking-normal normal-case", className)}>
+      <img src={logoImg} alt="MQS_Advisor" width={872} height={222} className="h-5 w-auto md:h-6" />
+      <span className="text-[13px] tracking-[.12em] uppercase text-muted-foreground">Advisor</span>
     </span>
   );
 }

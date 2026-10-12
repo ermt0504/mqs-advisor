@@ -131,6 +131,17 @@ export const fr = {
     { slug: "senegal", name: "Projet confidentiel", country: "SN", sector: "", status: "wip", url: "", desc: "", confidential: true },
     { slug: "djibouti", name: "Projet confidentiel", country: "DJ", sector: "", status: "wip", url: "", desc: "", confidential: true },
     {
+      slug: "martee", name: "Martee", country: "FR", sector: "Voyage", status: "wip", url: "",
+      desc: "Nous organisons, vous créez les souvenirs. Martee est l'application qui simplifie l'organisation des voyages, seul, en famille ou entre amis : explorer des destinations, planifier ensemble, partager ses aventures. Incubé par MQS_Advisor, en cours de développement.",
+      confidential: false,
+      features: [
+        { title: "Explorer", text: "Découvrir ce que font vos amis, trouver des voyageurs qui vous ressemblent, parcourir destinations, activités et vie nocturne." },
+        { title: "Planifier", text: "Choisir une date, une destination et ses compagnons, puis ajouter ses activités favorites à l'itinéraire." },
+        { title: "Partager", text: "Profiter du voyage et partager ses aventures avec le monde." },
+        { title: "Tout centralisé", text: "Fini les groupes de discussion et les tableurs : tout le voyage au même endroit, gratuitement." },
+      ],
+    },
+    {
       slug: "waahlex", name: "Waahlex", country: "CA", sector: "Fiscalité", status: "live", url: "https://www.waahlex.ca/",
       desc: "Vous faites vos déclarations, on fait le reste. Waahlex centralise la collecte documentaire, le suivi des dossiers et la communication client des cabinets comptables, augmentée par un agent IA qui pré-remplit les déclarations. Livrez plus de dossiers, avec moins de chaos.",
       confidential: false,
