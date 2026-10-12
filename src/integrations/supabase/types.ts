@@ -14,6 +14,38 @@ export type Database = {
   }
   public: {
     Tables: {
+      submission_events: {
+        Row: {
+          created_at: string
+          happens_at: string
+          id: string
+          note: string
+          submission_id: string
+        }
+        Insert: {
+          created_at?: string
+          happens_at: string
+          id?: string
+          note: string
+          submission_id: string
+        }
+        Update: {
+          created_at?: string
+          happens_at?: string
+          id?: string
+          note?: string
+          submission_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "submission_events_submission_id_fkey"
+            columns: ["submission_id"]
+            isOneToOne: false
+            referencedRelation: "submissions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       submissions: {
         Row: {
           attachment_path: string | null
@@ -30,6 +62,7 @@ export type Database = {
           project_name: string | null
           sector: string | null
           stage: string | null
+          status: string
         }
         Insert: {
           attachment_path?: string | null
@@ -46,6 +79,7 @@ export type Database = {
           project_name?: string | null
           sector?: string | null
           stage?: string | null
+          status?: string
         }
         Update: {
           attachment_path?: string | null
@@ -62,6 +96,7 @@ export type Database = {
           project_name?: string | null
           sector?: string | null
           stage?: string | null
+          status?: string
         }
         Relationships: []
       }
