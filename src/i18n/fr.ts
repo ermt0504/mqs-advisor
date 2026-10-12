@@ -30,8 +30,8 @@ export const fr = {
       description: "DIGIAFRICA, l'entité africaine de MQS_Advisor : fiscalité digitale, identité numérique, IA et cybersécurité pour les gouvernements au Sénégal et à Djibouti.",
     },
     join: {
-      title: "Rejoindre MQS — Candidature | MQS_Advisor",
-      description: "Rejoignez MQS_Advisor : développeurs, designers, juristes, chefs de projet. Postulez en 3 étapes.",
+      title: "Recrutement : rejoindre MQS_Advisor — Postuler en ligne",
+      description: "Offres et candidatures chez MQS_Advisor : développeur, designer, juriste, chef de projet. Travaillez sur des produits en France, Afrique et Canada. Postulez en 3 étapes.",
     },
     contact: {
       title: "Contact — MQS_Advisor",
