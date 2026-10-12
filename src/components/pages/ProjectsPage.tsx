@@ -99,14 +99,14 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
           ) : (
             <>
               <p className="max-w-2xl font-sans text-xl leading-[1.55] text-muted-2">{p.desc}</p>
-              <a
+              {p.url && <a
                 href={p.url}
                 target="_blank"
                 rel="noopener"
                 className="mt-10 inline-block border border-accent px-5 py-3.5 text-sm uppercase tracking-[.08em] text-accent transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 {t.common.visit} ↗
-              </a>
+              </a>}
             </>
           )}
           {IMAGES[p.slug] ? (
