@@ -31,6 +31,10 @@ export const en: Dict = {
       title: "DIGIAFRICA — Sovereign digital transformation in Africa | MQS_Advisor",
       description: "DIGIAFRICA, the African entity of MQS_Advisor: digital taxation, digital identity, AI and cybersecurity for governments in Senegal and Djibouti.",
     },
+    join: {
+      title: "Join MQS — Apply | MQS_Advisor",
+      description: "Join MQS_Advisor: developers, designers, lawyers, project managers. Apply in 3 steps.",
+    },
     contact: { title: "Contact — MQS_Advisor", description: "Contact MQS_Advisor or submit your project to the incubator." },
   },
   nav: {
@@ -41,6 +45,7 @@ export const en: Dict = {
     presence: "Presence",
     team: "Team",
     digiafrica: "DIGIAFRICA",
+    join: "Join MQS",
     contact: "Contact",
     submit: "Submit a project",
     menu: "Menu",
@@ -130,7 +135,7 @@ export const en: Dict = {
     { slug: "senegal", name: "Confidential project", country: "SN", sector: "", status: "wip", url: "", desc: "", confidential: true },
     { slug: "djibouti", name: "Confidential project", country: "DJ", sector: "", status: "wip", url: "", desc: "", confidential: true },
     {
-      slug: "martee", name: "Martee", country: "FR", sector: "Travel", status: "wip", url: "",
+      slug: "martee", name: "Martee", country: "FR", sector: "Travel", status: "wip", url: "https://martee.app/",
       desc: "We make plans. You make memories. Martee is the app that makes trip planning simple, solo, with family or with friends: explore destinations, plan together, share your adventures. Incubated by MQS_Advisor, currently in development.",
       confidential: false,
       features: [
@@ -171,6 +176,13 @@ export const en: Dict = {
       "France. Senegal. Djibouti. Canada.",
     ],
     note: "",
+    meaningLabel: "[00] What MQS stands for",
+    meaningTitle: "Three letters. One commitment.",
+    meaning: [
+      { letter: "M", word: "Mission", text: "Every product answers a real need: a citizen, a business, a state. We build nothing without a reason to exist." },
+      { letter: "Q", word: "Quality", text: "From code to contract, the bar is the same. What we ship holds up in production and in court." },
+      { letter: "S", word: "Sovereignty", text: "We build tools owned by the people who use them: controlled data, independent companies, autonomous states." },
+    ],
   },
   services: {
     label: "[01] Services",
@@ -271,7 +283,27 @@ export const en: Dict = {
     joinLabel: "[02] Join MQS",
     joinTitle: "Join MQS.",
     joinText: "Developers, product designers, lawyers, project managers: we look for people who want to build useful products and see them become companies. Send us an open application.",
-    joinCta: "Write to us",
+    joinCta: "Apply",
+  },
+  join: {
+    label: "[01] Join MQS",
+    title: "Build with us.",
+    intro: "We're looking for builders: people who want to design useful products and watch them become companies, in France, Africa and Canada.",
+    stepsLabel: "[02] The process",
+    steps: [
+      { title: "Application", text: "Fill in the form below. It takes 5 minutes." },
+      { title: "First call", text: "Within 10 days, a founder calls you to get to know you." },
+      { title: "Case study", text: "A short exercise based on one of our real projects." },
+      { title: "Welcome", text: "Offer, onboarding and your first project." },
+    ],
+    formLabel: "[03] Application",
+    role: "Position",
+    roles: ["Developer", "Product designer", "Lawyer", "Project manager", "Sales / partnerships", "Open application"],
+    location: "City / country",
+    linkLabel: "LinkedIn or portfolio",
+    motivation: "Why MQS?",
+    cv: "CV (PDF, 10 MB max)",
+    success: "Thank you! Your application has been received. We'll get back to you within 10 days.",
   },
   contact: {
     label: "[01] Contact",

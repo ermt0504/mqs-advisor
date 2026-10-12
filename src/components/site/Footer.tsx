@@ -2,7 +2,7 @@ import { useT, type NavKey } from "@/i18n";
 import { L } from "./primitives";
 import { LangToggle } from "./Header";
 
-const LINKS: NavKey[] = ["vision", "services", "incubator", "projects", "presence", "team", "digiafrica", "contact"];
+const LINKS: NavKey[] = ["vision", "services", "incubator", "projects", "presence", "team", "digiafrica", "join", "contact"];
 
 export function Footer() {
   const { t, paths } = useT();

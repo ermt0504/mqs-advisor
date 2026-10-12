@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useT } from "@/i18n";
 import { cn } from "@/lib/utils";
 import { CtaBand } from "@/components/site/Blocks";
-import { Placeholder } from "@/components/site/primitives";
+import { Placeholder, Section } from "@/components/site/primitives";
 
 export function VisionPage() {
   const { t } = useT();
@@ -56,6 +56,18 @@ export function VisionPage() {
         </div>
         {t.vision.note && <Placeholder className="max-w-xl">{t.vision.note}</Placeholder>}
       </div>
+      <Section label={t.vision.meaningLabel}>
+        <h2 className="h-section mb-14">{t.vision.meaningTitle}</h2>
+        <div className="grid gap-px border border-line bg-line md:grid-cols-3">
+          {t.vision.meaning.map((m) => (
+            <div key={m.letter} className="bg-background p-8 md:p-10">
+              <div className="font-display text-[120px] font-extrabold leading-none tracking-[-.05em] text-accent">{m.letter}</div>
+              <h3 className="mt-6 font-display text-2xl font-bold uppercase">{m.word}</h3>
+              <p className="mt-4 font-sans text-muted-2">{m.text}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
       <CtaBand />
     </>
   );
