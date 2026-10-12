@@ -130,6 +130,17 @@ export const en: Dict = {
     { slug: "senegal", name: "Confidential project", country: "SN", sector: "", status: "wip", url: "", desc: "", confidential: true },
     { slug: "djibouti", name: "Confidential project", country: "DJ", sector: "", status: "wip", url: "", desc: "", confidential: true },
     {
+      slug: "martee", name: "Martee", country: "FR", sector: "Travel", status: "wip", url: "",
+      desc: "We make plans. You make memories. Martee is the app that makes trip planning simple, solo, with family or with friends: explore destinations, plan together, share your adventures. Incubated by MQS_Advisor, currently in development.",
+      confidential: false,
+      features: [
+        { title: "Pick", text: "See what your friends have been up to, find travelers like you, browse destinations, activities and nightlife." },
+        { title: "Plan", text: "Choose a date, a destination and your companions, then add your favourite activities to the itinerary." },
+        { title: "Post", text: "Enjoy the trip and share your adventures with the world." },
+        { title: "All in one place", text: "No more group chats or spreadsheets: the whole trip in one place, free." },
+      ],
+    },
+    {
       slug: "waahlex", name: "Waahlex", country: "CA", sector: "Tax", status: "live", url: "https://www.waahlex.ca/",
       desc: "You file the returns, we handle the rest. Waahlex centralises document collection, file tracking and client communication for accounting firms, powered by an AI agent that pre-fills tax returns. Deliver more files, with less chaos.",
       confidential: false,
