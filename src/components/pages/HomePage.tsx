@@ -3,7 +3,7 @@ import { useT } from "@/i18n";
 import { Globe, type CountryCode } from "@/components/site/Globe";
 import { CtaBand, Pipeline, ProjectCard }
 import { IMAGES } from "@/components/pages/ProjectsPage"; from "@/components/site/Blocks";
-import { Counter, Reveal, Section } from "@/components/site/primitives";
+import { Counter, L, Reveal, Section } from "@/components/site/primitives";
 import { IdeaAdvisor } from "@/components/site/IdeaAdvisor";
 
 export function countsByCountry(projects: { country: CountryCode }[]) {
@@ -13,7 +13,7 @@ export function countsByCountry(projects: { country: CountryCode }[]) {
 }
 
 export function HomePage() {
-  const { t } = useT();
+  const { t, paths } = useT();
   const heroRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
 
