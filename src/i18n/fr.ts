@@ -100,7 +100,7 @@ export const fr = {
     figures: [
       { value: 4, label: "Pays" },
       { value: 3, label: "Produits en ligne · Santé, Mobilité, Fiscalité" },
-      { value: 3, label: "Projets en cours" },
+      { value: 4, label: "Projets en cours" },
     ],
     portfolioLabel: "[03] Portefeuille",
     ctaTitleA: "Votre projet",
@@ -161,6 +161,25 @@ export const fr = {
         { title: "Portail client", text: "Web ou mobile : questionnaire, dépôt sécurisé et suivi des pièces, sans appels répétés." },
         { title: "Collecte documentaire", text: "Questionnaires dynamiques, pièces justificatives et historique client regroupés par dossier." },
         { title: "Agent IA Waahlex", text: "Un agent comptable intégré qui pré-remplit les déclarations, toujours validé par l'humain." },
+      ],
+    },
+    {
+      slug: "transport-usagers-quebec",
+      name: "Transport des usagers · Québec",
+      country: "CA", sector: "Santé · Mobilité", status: "wip",
+      statusLabel: "En cours de développement",
+      url: "", confidential: false,
+      desc: "Une plateforme numérique développée par MQS inc. pour coordonner le transport non urgent des usagers du réseau de la santé du Québec. Elle vise à réunir les demandes des établissements, la planification des trajets et le travail des transporteurs, du rendez-vous médical au retour à domicile, en taxi régulier, taxi adapté ou transport médical adapté.",
+      note: "Nom commercial à déterminer. Les services décrits sont prévus au cahier des charges et seront déployés progressivement. La plateforme n'est pas encore disponible et ne prend pas en charge les urgences ni le transport sur civière.",
+      imageAlt: "Illustration générée : accompagnement d'un usager en fauteuil roulant vers un véhicule de transport adapté au Québec.",
+      gallery: [{ title: "Relier les établissements et les transporteurs", text: "Les centrales de transport, le personnel clinique, les transporteurs et les organismes de transport adapté sont les publics visés. La plateforme doit faciliter la coordination, sans remplacer les équipes qui décident et accompagnent les usagers.", alt: "Illustration générée : coordination des trajets à partir d'un calendrier et d'une carte." }],
+      features: [
+        { title: "Demandes et choix du transport", text: "Centraliser les demandes et proposer un mode adapté à la mobilité et à l'assistance nécessaire. L'agent confirme la recommandation : la décision reste humaine." },
+        { title: "Planification des déplacements", text: "Organiser les trajets ponctuels et récurrents, notamment pour la dialyse ou l'oncologie. Le jumelage de trajets compatibles est prévu dans une phase ultérieure." },
+        { title: "Attribution et suivi des courses", text: "Transmettre les courses aux transporteurs, recueillir leur acceptation et suivre la prise en charge et l'arrivée grâce à une interface chauffeur." },
+        { title: "Communications et documents", text: "Prévoir des avis aux usagers, aux proches et aux unités de soins, ainsi qu'un suivi des qualifications et assurances des transporteurs." },
+        { title: "Facturation et pilotage", text: "Prévoir le rapprochement des courses et des factures, puis des tableaux de bord pour suivre l'activité et éclairer la gestion des transports." },
+        { title: "Portail usager à venir", text: "Une phase ultérieure prévoit un portail pour les usagers et les démarches d'aide financière. Les exigences de protection des données seront validées avant la mise en marché." },
       ],
     },
   ] as Project[],
@@ -354,6 +373,10 @@ export type Project = {
   confidential: boolean;
   facts?: { value: string; label: string }[];
   features?: { title: string; text: string }[];
+  statusLabel?: string;
+  note?: string;
+  imageAlt?: string;
+  gallery?: { title: string; text: string; alt: string }[];
 };
 
 export type Dict = typeof fr;

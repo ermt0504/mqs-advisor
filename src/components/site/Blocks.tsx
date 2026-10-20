@@ -68,7 +68,7 @@ export function ProjectCard({ p, image }: { p: Project; image?: string | undefin
     <L to={projectPath(lang, p.slug)} className="group flex flex-col bg-background transition-colors hover:bg-muted">
       <div className="relative aspect-[16/10] overflow-hidden border-b border-line">
         {image && !p.confidential ? (
-          <img src={image} alt={p.name} loading="lazy" className="size-full object-cover grayscale transition-all duration-500 group-hover:scale-[1.03] group-hover:grayscale-0" />
+          <img src={image} alt={p.imageAlt ?? p.name} loading="lazy" className="size-full object-cover grayscale transition-all duration-500 group-hover:scale-[1.03] group-hover:grayscale-0" />
         ) : (
           <div className="dot-grid flex size-full items-center justify-center">
             <span className="font-display text-6xl font-extrabold text-ghost">{p.name.slice(0, 2).toUpperCase()}</span>
@@ -77,9 +77,9 @@ export function ProjectCard({ p, image }: { p: Project; image?: string | undefin
         {p.confidential && <div className="absolute left-4 top-4 bg-background"><ConfidentialBadge /></div>}
       </div>
       <div className="flex flex-1 flex-col p-6">
-        <div className="label-mono flex items-center justify-between gap-3 text-muted-foreground">
+        <div className="label-mono flex flex-wrap items-center justify-between gap-3 text-muted-foreground">
           <span>{t.countries[p.country]}{p.sector && ` · ${p.sector}`}</span>
-          <span className={p.status === "live" ? "text-accent" : ""}>{p.status === "live" ? "●" : "○"} {t.status[p.status]}</span>
+          <span className={p.status === "live" ? "text-accent" : ""}>{p.status === "live" ? "●" : "○"} {p.statusLabel ?? t.status[p.status]}</span>
         </div>
         <h3 className="mt-4 font-display text-2xl font-bold tracking-[-.02em]">{p.name}</h3>
         <p className="mt-3 line-clamp-3 font-sans text-[15px] text-muted-foreground">{p.confidential ? t.projectsPage.confidentialText : p.desc}</p>

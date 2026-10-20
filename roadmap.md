@@ -1,0 +1,3 @@
+- [x] Présenter le projet canadien de transport non urgent à partir du cahier des charges, en français et en anglais.
+- [x] Ajouter deux illustrations et le statut en cours de développement.
+- [x] Vérifier la recherche, la fiche projet et les images.

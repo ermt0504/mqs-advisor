@@ -8,8 +8,11 @@ import saturneImg from "@/assets/project-saturne-pro.jpg";
 import tcmImg from "@/assets/project-tcm.jpg";
 import waahlexImg from "@/assets/project-waahlex.jpg";
 import marteeImg from "@/assets/project-martee.jpg";
+import transportImg from "@/assets/project-transport-quebec.jpg";
+import coordinationImg from "@/assets/project-transport-coordination.jpg";
 
-export const IMAGES: Record<string, string> = { "saturne-pro": saturneImg, "taxi-conventionne-medical": tcmImg, waahlex: waahlexImg, martee: marteeImg };
+export const IMAGES: Record<string, string> = { "saturne-pro": saturneImg, "taxi-conventionne-medical": tcmImg, waahlex: waahlexImg, martee: marteeImg, "transport-usagers-quebec": transportImg };
+const GALLERY_IMAGES: Record<string, string[]> = { "transport-usagers-quebec": [coordinationImg] };
 
 const COUNTRIES = ["FR", "SN", "DJ", "CA"] as const;
 const STATUSES = ["live", "wip"] as const;
@@ -99,7 +102,8 @@ export function ProjectsPage() {
 
 export function ProjectDetailPage({ slug }: { slug: string }) {
   const { t, lang } = useT();
-  const p = t.projects.find((x) => x.slug === slug)!;
+  const p = t.projects.find((x) => x.slug === slug);
+  if (!p) return null;
   return (
     <>
       <div className="dot-grid px-5 pb-12 pt-16 md:px-14 md:pt-24">
@@ -107,13 +111,13 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
           <L to={PATHS[lang].projects} className="label-mono text-muted-foreground hover:text-ink-strong">
             ← {t.common.back}
           </L>
-          <div className="label-mono mb-8 mt-10 flex items-center gap-3 text-muted-foreground">
+          <div className="label-mono mb-8 mt-10 flex flex-wrap items-center gap-3 text-muted-foreground">
             <span className={p.status === "live" ? "pulse-dot" : "size-2 rounded-full border border-dim"} aria-hidden />
             {t.countries[p.country]}
-            {p.sector && ` · ${p.sector}`} · {t.status[p.status]}
+            {p.sector && ` · ${p.sector}`} · {p.statusLabel ?? t.status[p.status]}
             {p.confidential && <ConfidentialBadge />}
           </div>
-          <h1 className={cn("h-giant max-w-[16ch]", false)} style={{ fontSize: "clamp(44px, 8vw, 112px)" }}>
+          <h1 className="max-w-[16ch] break-words font-display text-[36px] font-extrabold uppercase leading-tight sm:text-[56px] lg:text-[80px]">
             {p.name}
           </h1>
         </Reveal>
@@ -125,6 +129,7 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
           ) : (
             <>
               <p className="max-w-2xl font-sans text-xl leading-[1.55] text-muted-2">{p.desc}</p>
+              {p.note && <p className="mt-6 max-w-2xl border-l-2 border-accent pl-5 font-sans text-sm leading-relaxed text-muted-foreground">{p.note}</p>}
               {p.url && <a
                 href={p.url}
                 target="_blank"
@@ -136,7 +141,7 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
             </>
           )}
           {IMAGES[p.slug] && !p.confidential ? (
-            <img src={IMAGES[p.slug]} alt={p.name} width={1600} height={912} loading="lazy" className="mt-14 aspect-[16/9] w-full object-cover" />
+            <img src={IMAGES[p.slug]} alt={p.imageAlt ?? p.name} width={1600} height={900} loading="lazy" className="mt-14 aspect-[16/9] w-full object-cover" />
           ) : (
             <Placeholder className="mt-14 flex aspect-[16/9] items-center justify-center">{t.common.imageSlot}</Placeholder>
           )}
@@ -161,6 +166,17 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
               ))}
             </div>
           )}
+          {p.gallery?.map((item, i) => {
+            const image = GALLERY_IMAGES[p.slug]?.[i];
+            if (!image || p.confidential) return null;
+            return <figure key={item.title} className="mt-14">
+              <img src={image} alt={item.alt} width={1600} height={900} loading="lazy" className="aspect-[16/9] w-full object-cover" />
+              <figcaption className="mt-6 max-w-2xl">
+                <h2 className="font-display text-xl font-bold">{item.title}</h2>
+                <p className="mt-3 font-sans leading-relaxed text-muted-foreground">{item.text}</p>
+              </figcaption>
+            </figure>;
+          })}
         </Reveal>
       </Section>
       <CtaBand />
