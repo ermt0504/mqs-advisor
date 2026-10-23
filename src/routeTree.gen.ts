@@ -13,15 +13,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DigiafrikaRouteImport } from './routes/digiafrika'
 import { Route as EquipeRouteImport } from './routes/equipe'
-import { Route as EspaceEquipeRouteImport } from './routes/espace-equipe'
 import { Route as IncubateurRouteImport } from './routes/incubateur'
-import { Route as McpRouteImport } from './routes/mcp'
 import { Route as PresenceRouteImport } from './routes/presence'
 import { Route as RejoindreRouteImport } from './routes/rejoindre'
 import { Route as ServicesRouteImport } from './routes/services'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as VisionRouteImport } from './routes/vision'
-import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as EnContactRouteImport } from './routes/en.contact'
 import { Route as EnDigiafrikaRouteImport } from './routes/en.digiafrika'
@@ -56,19 +52,9 @@ const EquipeRoute = EquipeRouteImport.update({
   path: '/equipe',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EspaceEquipeRoute = EspaceEquipeRouteImport.update({
-  id: '/espace-equipe',
-  path: '/espace-equipe',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IncubateurRoute = IncubateurRouteImport.update({
   id: '/incubateur',
   path: '/incubateur',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const McpRoute = McpRouteImport.update({
-  id: '/mcp',
-  path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PresenceRoute = PresenceRouteImport.update({
@@ -86,22 +72,11 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const VisionRoute = VisionRouteImport.update({
   id: '/vision',
   path: '/vision',
   getParentRoute: () => rootRouteImport,
 } as any)
-const Char91DotwellKnownChar93OauthProtectedResourceRoute =
-  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
-    id: '/.well-known/oauth-protected-resource',
-    path: '/.well-known/oauth-protected-resource',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const EnIndexRoute = EnIndexRouteImport.update({
   id: '/en/',
   path: '/en/',
@@ -173,15 +148,11 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/digiafrika': typeof DigiafrikaRoute
   '/equipe': typeof EquipeRoute
-  '/espace-equipe': typeof EspaceEquipeRoute
   '/incubateur': typeof IncubateurRoute
-  '/mcp': typeof McpRoute
   '/presence': typeof PresenceRoute
   '/rejoindre': typeof RejoindreRoute
   '/services': typeof ServicesRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision': typeof VisionRoute
-  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/en/contact': typeof EnContactRoute
   '/en/digiafrika': typeof EnDigiafrikaRoute
   '/en/incubator': typeof EnIncubatorRoute
@@ -201,15 +172,11 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/digiafrika': typeof DigiafrikaRoute
   '/equipe': typeof EquipeRoute
-  '/espace-equipe': typeof EspaceEquipeRoute
   '/incubateur': typeof IncubateurRoute
-  '/mcp': typeof McpRoute
   '/presence': typeof PresenceRoute
   '/rejoindre': typeof RejoindreRoute
   '/services': typeof ServicesRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision': typeof VisionRoute
-  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/en/contact': typeof EnContactRoute
   '/en/digiafrika': typeof EnDigiafrikaRoute
   '/en/incubator': typeof EnIncubatorRoute
@@ -230,15 +197,11 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/digiafrika': typeof DigiafrikaRoute
   '/equipe': typeof EquipeRoute
-  '/espace-equipe': typeof EspaceEquipeRoute
   '/incubateur': typeof IncubateurRoute
-  '/mcp': typeof McpRoute
   '/presence': typeof PresenceRoute
   '/rejoindre': typeof RejoindreRoute
   '/services': typeof ServicesRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision': typeof VisionRoute
-  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/en/contact': typeof EnContactRoute
   '/en/digiafrika': typeof EnDigiafrikaRoute
   '/en/incubator': typeof EnIncubatorRoute
@@ -260,15 +223,11 @@ export interface FileRouteTypes {
     | '/contact'
     | '/digiafrika'
     | '/equipe'
-    | '/espace-equipe'
     | '/incubateur'
-    | '/mcp'
     | '/presence'
     | '/rejoindre'
     | '/services'
-    | '/sitemap.xml'
     | '/vision'
-    | '/.well-known/oauth-protected-resource'
     | '/en/contact'
     | '/en/digiafrika'
     | '/en/incubator'
@@ -288,15 +247,11 @@ export interface FileRouteTypes {
     | '/contact'
     | '/digiafrika'
     | '/equipe'
-    | '/espace-equipe'
     | '/incubateur'
-    | '/mcp'
     | '/presence'
     | '/rejoindre'
     | '/services'
-    | '/sitemap.xml'
     | '/vision'
-    | '/.well-known/oauth-protected-resource'
     | '/en/contact'
     | '/en/digiafrika'
     | '/en/incubator'
@@ -316,15 +271,11 @@ export interface FileRouteTypes {
     | '/contact'
     | '/digiafrika'
     | '/equipe'
-    | '/espace-equipe'
     | '/incubateur'
-    | '/mcp'
     | '/presence'
     | '/rejoindre'
     | '/services'
-    | '/sitemap.xml'
     | '/vision'
-    | '/.well-known/oauth-protected-resource'
     | '/en/contact'
     | '/en/digiafrika'
     | '/en/incubator'
@@ -345,15 +296,11 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DigiafrikaRoute: typeof DigiafrikaRoute
   EquipeRoute: typeof EquipeRoute
-  EspaceEquipeRoute: typeof EspaceEquipeRoute
   IncubateurRoute: typeof IncubateurRoute
-  McpRoute: typeof McpRoute
   PresenceRoute: typeof PresenceRoute
   RejoindreRoute: typeof RejoindreRoute
   ServicesRoute: typeof ServicesRoute
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   VisionRoute: typeof VisionRoute
-  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   EnContactRoute: typeof EnContactRoute
   EnDigiafrikaRoute: typeof EnDigiafrikaRoute
   EnIncubatorRoute: typeof EnIncubatorRoute
@@ -399,25 +346,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EquipeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/espace-equipe': {
-      id: '/espace-equipe'
-      path: '/espace-equipe'
-      fullPath: '/espace-equipe'
-      preLoaderRoute: typeof EspaceEquipeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/incubateur': {
       id: '/incubateur'
       path: '/incubateur'
       fullPath: '/incubateur'
       preLoaderRoute: typeof IncubateurRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mcp': {
-      id: '/mcp'
-      path: '/mcp'
-      fullPath: '/mcp'
-      preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/presence': {
@@ -441,25 +374,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/vision': {
       id: '/vision'
       path: '/vision'
       fullPath: '/vision'
       preLoaderRoute: typeof VisionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/.well-known/oauth-protected-resource': {
-      id: '/.well-known/oauth-protected-resource'
-      path: '/.well-known/oauth-protected-resource'
-      fullPath: '/.well-known/oauth-protected-resource'
-      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/': {
@@ -561,16 +480,11 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DigiafrikaRoute: DigiafrikaRoute,
   EquipeRoute: EquipeRoute,
-  EspaceEquipeRoute: EspaceEquipeRoute,
   IncubateurRoute: IncubateurRoute,
-  McpRoute: McpRoute,
   PresenceRoute: PresenceRoute,
   RejoindreRoute: RejoindreRoute,
   ServicesRoute: ServicesRoute,
-  SitemapDotxmlRoute: SitemapDotxmlRoute,
   VisionRoute: VisionRoute,
-  Char91DotwellKnownChar93OauthProtectedResourceRoute:
-    Char91DotwellKnownChar93OauthProtectedResourceRoute,
   EnContactRoute: EnContactRoute,
   EnDigiafrikaRoute: EnDigiafrikaRoute,
   EnIncubatorRoute: EnIncubatorRoute,
@@ -590,11 +504,10 @@ export const routeTree = rootRouteImport
   ._addFileTypes<FileRouteTypes>()
 
 import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
+import type { createStart } from '@tanstack/react-start'
 declare module '@tanstack/react-start' {
   interface Register {
     ssr: true
     router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
   }
 }

@@ -1,24 +1,35 @@
 # MQS Advisor
 
-Je veux developper se site internet
+Site vitrine bilingue (FR/EN) de MQS_Advisor : studio produit et incubateur (Canada, France, Sénégal, Djibouti), avec la marque DIGIAFRICA pour les plateformes publiques en Afrique.
 
-This project was built with [Lovable](https://lovable.dev).
+## Stack
 
-## Build with Lovable
+- [TanStack Start](https://tanstack.com/start) + React 19, routage par fichiers dans `src/routes/`
+- Tailwind CSS 4, composants shadcn/ui dans `src/components/ui/`
+- Textes FR/EN dans `src/i18n/fr.ts` et `src/i18n/en.ts`
+- Formulaires Contact et Rejoindre envoyés directement à Supabase (table `submissions`, bucket `attachments`)
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/7c903d49-f21c-432d-b7f1-78017aaffed8).
+Le site est entièrement **statique** : chaque page est pré-rendue en HTML au build, ce qui permet de l'héberger sur GitHub Pages.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Développement
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+bun install
+bun run dev      # http://localhost:8080
+bun run test     # tests des dictionnaires
+bun run build    # site statique dans dist/client
+```
+
+Variables d'environnement (`.env`) : `VITE_SUPABASE_URL` et `VITE_SUPABASE_PUBLISHABLE_KEY`.
+
+## Déploiement
+
+Chaque push sur `main` lance [.github/workflows/deploy.yml](.github/workflows/deploy.yml), qui construit le site et le publie sur GitHub Pages.
+
+Prérequis, une seule fois : dans le repo GitHub, **Settings → Pages → Source : GitHub Actions**.
+
+Pour construire localement avec le même chemin que GitHub Pages :
+
+```sh
+BASE_PATH=/mqs-advisor/ SITE_URL=https://ermt0504.github.io/mqs-advisor bun run build
 ```

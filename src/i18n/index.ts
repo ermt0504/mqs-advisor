@@ -63,11 +63,15 @@ export function useT() {
   return { lang, t: DICTS[lang], paths: PATHS[lang] };
 }
 
+// Absolute page URL: SITE_URL when set at build time, otherwise the base path.
+const SITE_ROOT = (import.meta.env["VITE_SITE_URL"] || import.meta.env.BASE_URL).replace(/\/$/, "");
+const pageUrl = (path: string) => SITE_ROOT + path;
+
 /** Per-page head metadata with hreflang alternates. */
 export function seo(lang: Lang, page: PageKey, override?: { title: string; description: string; slug?: string }) {
   const m = override ?? DICTS[lang].meta[page];
-  const frPath = override?.slug ? projectPath("fr", override.slug) : PATHS.fr[page];
-  const enPath = override?.slug ? projectPath("en", override.slug) : PATHS.en[page];
+  const frPath = pageUrl(override?.slug ? projectPath("fr", override.slug) : PATHS.fr[page]);
+  const enPath = pageUrl(override?.slug ? projectPath("en", override.slug) : PATHS.en[page]);
   return {
     meta: [
       { title: m.title },

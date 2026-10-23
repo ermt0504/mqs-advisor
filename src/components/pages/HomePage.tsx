@@ -4,7 +4,6 @@ import { Globe, type CountryCode } from "@/components/site/Globe";
 import { CtaBand, Pipeline, ProjectCard } from "@/components/site/Blocks";
 import { IMAGES } from "@/components/pages/ProjectsPage";
 import { Counter, L, Reveal, Section } from "@/components/site/primitives";
-import { IdeaAdvisor } from "@/components/site/IdeaAdvisor";
 
 export function countsByCountry(projects: { country: CountryCode }[]) {
   const c: Record<CountryCode, number> = { CA: 0, FR: 0, SN: 0, DJ: 0 };
@@ -107,8 +106,6 @@ export function HomePage() {
           {t.projectsPage.viewAll} ({t.projects.length}) →
         </L>
       </Section>
-
-      <IdeaAdvisor />
 
       <CtaBand />
     </>
